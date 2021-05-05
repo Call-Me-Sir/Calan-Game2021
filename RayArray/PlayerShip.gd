@@ -33,10 +33,10 @@ func move(xspeed, yspeed, delta, flip= null):
 	position.x += xspeed * delta * speedchange
 	position.y += yspeed * delta * speedchange
 	moving = true
-	if flip == null:
-		pass
-	else:
-		$Sprite.flip_h = flip
+	#if flip == null:
+		#pass
+	#else:
+		#$Sprite.flip_h = flip
 
 func _ready():
 	pass
