@@ -10,7 +10,7 @@ var mousepositoion
 func _process(delta):
 	mousepositoion = get_local_mouse_position()
 	
-	rotation += mousepositoion.angle() * 0.1
+	rotation += mousepositoion.angle() * 0.2
 
 
 # Called when the node enters the scene tree for the first time.

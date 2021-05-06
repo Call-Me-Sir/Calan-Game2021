@@ -9,29 +9,23 @@ export var friction = 0.19
 export var acceleration = 0.15
 var velocity = Vector2.ZERO
 
+func set_speed(s,f):
+	speed = s
+	friction = f
+	
 func _physics_process(delta):
 	var input_velocity = Vector2.ZERO
 	# Check input for "desired" velocity
-	if Input.is_action_pressed("ui_right"):
-		input_velocity.x += 1
-	if Input.is_action_pressed("ui_left"):
-		input_velocity.x -= 1
-	if Input.is_action_pressed("ui_down"):
-		input_velocity.y += 1
-	if Input.is_action_pressed("ui_up"):
-		input_velocity.y -= 1
+	input_velocity.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
+	input_velocity.y = Input.get_action_strength("ui_down")-Input.get_action_strength("ui_up")
 	if Input.is_action_pressed("speedup"):
-		speed = 400
-		friction = 0.2
-	if Input.is_action_just_released("speedup"):
-		speed = 200
-		friction = 0.19
-	if Input.is_action_pressed("slowdown"):
-		speed = 70
-		friction = 0.16
-	if Input.is_action_just_released("slowdown"):
-		speed = 200
-		friction = 0.19
+		set_speed(400,0.2)
+	elif Input.is_action_just_released("speedup"):
+		set_speed(200,0.19)
+	elif Input.is_action_pressed("slowdown"):
+		set_speed(70,0.16)
+	elif Input.is_action_just_released("slowdown"):
+		set_speed(200,0.19)
 	input_velocity = input_velocity.normalized() * speed
 
 	# If there's input, accelerate to the input velocity
