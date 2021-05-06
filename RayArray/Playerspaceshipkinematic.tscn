@@ -36,3 +36,4 @@ hue_variation_random = 0.45
 [node name="RayCast2D" type="RayCast2D" parent="ContraptionSprite"]
 enabled = true
 cast_to = Vector2( 50, 0 )
+collision_mask = 2

@@ -9,6 +9,10 @@ export var friction = 0.19
 export var acceleration = 0.15
 var velocity = Vector2.ZERO
 
+onready var ray = $ContraptionSprite/RayCast2D
+onready var new_ray = preload("res://ReflectorCast.tscn")
+var reflector_ray = null
+
 func set_speed(s,f):
 	speed = s
 	friction = f
@@ -35,6 +39,23 @@ func _physics_process(delta):
 		# If there's no input, slow down to (0, 0)
 		velocity = velocity.linear_interpolate(Vector2.ZERO, friction)
 	velocity = move_and_slide(velocity)
+	check_ray_collision()
+
+func check_ray_collision():	
+	if ray.is_colliding():		
+		var new_ray_position = ray.get_collision_point()
+		#var new_ray_angle = ray.get_collision_normal()
+		if reflector_ray == null:
+			reflector_ray = new_ray.instance()
+			reflector_ray.global_position = new_ray_position
+			get_tree().get_root().add_child(reflector_ray)
+		else:			
+			reflector_ray.global_position = new_ray_position
+			#reflector_ray.rotation = ray.get_collision_normal() - ray.get_parent().rotation	
+	else:
+		if reflector_ray != null:
+			reflector_ray.queue_free()
+			reflector_ray = null
 
 
 
