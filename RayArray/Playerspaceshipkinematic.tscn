@@ -1,15 +1,14 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Imported resources/Player space ship (WIP)-1.png.png" type="Texture" id=1]
+[ext_resource path="res://Imported resources/Player space ship (WIP)-2.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Playerspaceshipkinematic.gd" type="Script" id=2]
 [ext_resource path="res://Imported resources/Red Laser V1-1.png (1).png" type="Texture" id=3]
 [ext_resource path="res://Scripts/ContraptionSprite.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 12 )
+extents = Vector2( 25, 25 )
 
 [node name="Playerspaceshipkinematic" type="KinematicBody2D"]
-scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 
 [node name="SpaceshipSprite" type="Sprite" parent="."]

@@ -44,7 +44,7 @@ func _physics_process(delta):
 func check_ray_collision():	
 	if ray.is_colliding():		
 		var new_ray_position = ray.get_collision_point()
-		#var new_ray_angle = ray.get_collision_normal()
+		var new_ray_angle = ray.get_collision_normal()
 		if reflector_ray == null:
 			reflector_ray = new_ray.instance()
 			reflector_ray.global_position = new_ray_position
