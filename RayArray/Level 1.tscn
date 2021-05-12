@@ -26,3 +26,35 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+
+[node name="Area2D2" type="StaticBody2D" parent="."]
+position = Vector2( 63.8064, 255.67 )
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource( 1 )
+
+[node name="Area2D3" type="StaticBody2D" parent="."]
+position = Vector2( 370.566, 353.834 )
+rotation = 0.777186
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+shape = SubResource( 1 )
+
+[node name="Area2D4" type="StaticBody2D" parent="."]
+position = Vector2( 356.408, 199.982 )
+rotation = 0.215142
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+shape = SubResource( 1 )

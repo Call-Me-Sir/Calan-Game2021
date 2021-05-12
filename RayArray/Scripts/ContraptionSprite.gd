@@ -1,4 +1,4 @@
-extends Sprite
+extends RayCast2D
 
 
 # Declare member variables here. Examples:
@@ -8,9 +8,7 @@ extends Sprite
 var mousepositoion
 
 func _process(delta):
-	mousepositoion = get_local_mouse_position()
-	
-	rotation += mousepositoion.angle() * 0.2
+	pass
 
 
 # Called when the node enters the scene tree for the first time.
