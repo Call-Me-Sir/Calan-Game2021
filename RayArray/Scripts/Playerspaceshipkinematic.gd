@@ -59,21 +59,25 @@ func _physics_process(delta):
 func rotate_ray(delta):
 	var mouse_position = get_local_mouse_position()
 	ray.cast_to = mouse_position.normalized() * max_ray_cast
+	$RayCast2D/ContraptionSprite.rotation = mouse_position.angle()
 
 func check_ray_collision():	
 	if ray.is_colliding():		
 		var new_ray_position = ray.get_collision_point()
 		var new_ray_angle = ray.get_collision_normal()
-		if reflector_ray == null:
-			reflector_ray = new_ray.instance()
-			reflector_ray.global_position = new_ray_position
-			get_tree().get_root().add_child(reflector_ray)
-		else:			
-			print(ray.cast_to)
-			reflector_ray.global_position = new_ray_position
-			var r = ray.cast_to.bounce(ray.get_collision_normal())
-			reflector_ray.cast_to = r 
-			#reflector_ray.rotation = ray.get_collision_normal() - ray.get_parent().rotation	
+		var optic_device = ray.get_collider_shape()
+		print(optic_device)
+		if ray.get_collider().is_in_group("Mirror"):
+			if reflector_ray == null :
+				reflector_ray = new_ray.instance()
+				reflector_ray.global_position = new_ray_position
+				get_tree().get_root().add_child(reflector_ray)
+			else:			
+				print(ray.cast_to)
+				reflector_ray.global_position = new_ray_position
+				var r = ray.cast_to.bounce(ray.get_collision_normal())
+				reflector_ray.cast_to = r 
+				#reflector_ray.rotation = ray.get_collision_normal() - ray.get_parent().rotation	
 	else:
 		if reflector_ray != null:
 			reflector_ray.queue_free()
