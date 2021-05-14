@@ -78,10 +78,10 @@ func check_ray_collision():
 				var r = ray.cast_to.bounce(ray.get_collision_normal())
 				reflector_ray.cast_to = r 
 				#reflector_ray.rotation = ray.get_collision_normal() - ray.get_parent().rotation	
-	else:
-		if reflector_ray != null:
-			reflector_ray.queue_free()
-			reflector_ray = null
+		else:
+			if reflector_ray != null:
+				reflector_ray.queue_free()
+				reflector_ray = null
 
 
 
