@@ -11,7 +11,8 @@ var velocity = Vector2.ZERO
 var max_ray_cast = 1000
 
 onready var _animated_sprite = $SpaceshipThrust
-
+onready var beam = $RayCast2D/Beam
+onready var beam_end = $RayCast2D/End
 onready var ray = $RayCast2D
 onready var new_ray = preload("res://ReflectorCast.tscn")
 var reflector_ray = null
@@ -53,21 +54,25 @@ func _physics_process(delta):
 		# If there's no input, slow down to (0, 0)
 		velocity = velocity.linear_interpolate(Vector2.ZERO, friction)
 	velocity = move_and_slide(velocity)
-	rotate_ray(delta)
+	ray_and_beam(delta)
 	check_ray_collision()
 
-func rotate_ray(delta):
+func ray_and_beam(delta):
 	var mouse_position = get_local_mouse_position()
 	ray.cast_to = mouse_position.normalized() * max_ray_cast
 	$RayCast2D/ContraptionSprite.rotation = mouse_position.angle()
+	beam.rotation = ray.cast_to.angle()
+	beam.region_rect.end.x = beam_end.position.length()
 
 func check_ray_collision():	
 	if ray.is_colliding():		
 		var new_ray_position = ray.get_collision_point()
 		var new_ray_angle = ray.get_collision_normal()
 		var optic_device = ray.get_collider_shape()
+		beam_end.global_position = ray.get_collision_point()
 		print(optic_device)
 		if ray.get_collider().is_in_group("Mirror"):
+			$RayCast2D/End/EndParticles.set_emmiting(false)
 			if reflector_ray == null :
 				reflector_ray = new_ray.instance()
 				reflector_ray.global_position = new_ray_position
@@ -77,11 +82,18 @@ func check_ray_collision():
 				reflector_ray.global_position = new_ray_position
 				var r = ray.cast_to.bounce(ray.get_collision_normal())
 				reflector_ray.cast_to = r 
-				#reflector_ray.rotation = ray.get_collision_normal() - ray.get_parent().rotation	
+				#reflector_ray.rotation = ray.get_collision_normal() - ray.get_parent().rotation
 		else:
+			$RayCast2D/End/EndParticles.set_emmiting(true)
 			if reflector_ray != null:
 				reflector_ray.queue_free()
 				reflector_ray = null
+	else:
+		beam_end.global_position = ray.cast_to
+		if reflector_ray != null:
+			reflector_ray.queue_free()
+			reflector_ray = null
+		
 
 
 
