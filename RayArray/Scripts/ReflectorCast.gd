@@ -2,25 +2,25 @@ extends RayCast2D
 
 
 onready var new_ray = load("res://ReflectorCast.tscn")
-onready var ray = $ReflectorCast
-onready var beam = $ReflectorCast/Beam
+var ray = RayCast2D
+onready var beam = $Beam
 var reflector_ray = null
-onready var beam_end = $ReflectorCast/End
+onready var beam_end = $End
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 
 func check_ray_collision():	
-	if ray.is_colliding():		
+	if ray:
 		var new_ray_position = ray.get_collision_point()
 		var new_ray_angle = ray.get_collision_normal()
 		var optic_device = ray.get_collider_shape()
 		beam_end.global_position = ray.get_collision_point()
 		print(optic_device)
 		if ray.get_collider().is_in_group("Mirror"):
-			$ReflectorCast/End/EndParticles.emitting = false
-			$ReflectorCast/End/EndParticles.hide()
+			$End/EndParticles.emitting = false
+			$End/EndParticles.hide()
 			if reflector_ray == null :
 				reflector_ray = new_ray.instance()
 				reflector_ray.global_position = new_ray_position
@@ -50,9 +50,14 @@ func check_ray_collision():
 
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
-	beam.rotation = ray.cast_to.angle()
+	#beam.rotation = ray.cast_to.angle()
 	beam.region_rect.end.x = beam_end.position.length()
 	check_ray_collision()
+	ray_casting(delta)
+
+func ray_casting(delta):
+	#ray.cast_to = 
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
