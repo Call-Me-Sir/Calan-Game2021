@@ -1,9 +1,49 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/ReflectorCast.gd" type="Script" id=1]
+[ext_resource path="res://Imported resources/Beam.png" type="Texture" id=2]
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.7
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 3 )
+
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 1
 
 [node name="ReflectorCast" type="RayCast2D"]
 enabled = true
 cast_to = Vector2( 50, 0 )
 collision_mask = 2
 script = ExtResource( 1 )
+
+[node name="End" type="Position2D" parent="."]
+position = Vector2( 31, 0 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="EndParticles" type="Particles2D" parent="End"]
+rotation = 3.14159
+amount = 200
+process_material = SubResource( 5 )
+
+[node name="Beam" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+material = SubResource( 6 )
+position = Vector2( -6.71, 0 )
+scale = Vector2( 1.22, 0.05 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( 5.5, -12 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 25.623, 24 )

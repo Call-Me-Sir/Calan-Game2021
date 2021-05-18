@@ -72,7 +72,8 @@ func check_ray_collision():
 		beam_end.global_position = ray.get_collision_point()
 		print(optic_device)
 		if ray.get_collider().is_in_group("Mirror"):
-			$RayCast2D/End/EndParticles.set_emmiting(false)
+			$RayCast2D/End/EndParticles.emitting = false
+			$RayCast2D/End/EndParticles.hide()
 			if reflector_ray == null :
 				reflector_ray = new_ray.instance()
 				reflector_ray.global_position = new_ray_position
@@ -84,11 +85,17 @@ func check_ray_collision():
 				reflector_ray.cast_to = r 
 				#reflector_ray.rotation = ray.get_collision_normal() - ray.get_parent().rotation
 		else:
-			$RayCast2D/End/EndParticles.set_emmiting(true)
+			$RayCast2D/End/EndParticles.set_emitting(true)
+			$RayCast2D/End/EndParticles.show()
+			var c = ray.get_collision_normal()
+			var b = ray.cast_to.bounce(c)
+			$RayCast2D/End/EndParticles.rotation = c.angle()# + 0.5*b.angle()
 			if reflector_ray != null:
 				reflector_ray.queue_free()
 				reflector_ray = null
 	else:
+		$RayCast2D/End/EndParticles.emitting = false
+		$RayCast2D/End/EndParticles.hide()
 		beam_end.global_position = ray.cast_to
 		if reflector_ray != null:
 			reflector_ray.queue_free()
