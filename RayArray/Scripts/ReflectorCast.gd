@@ -12,7 +12,7 @@ onready var beam_end = $End
 
 
 func check_ray_collision():	
-	if ray:
+	if ray.is_colliding():
 		var new_ray_position = ray.get_collision_point()
 		var new_ray_angle = ray.get_collision_normal()
 		var optic_device = ray.get_collider_shape()
