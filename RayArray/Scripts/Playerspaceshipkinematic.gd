@@ -32,7 +32,7 @@ func thrust_animation():
 		_animated_sprite.play("Thrust Right", true)
 	
 
-func _physics_process(delta):
+func _process(delta):
 	var input_velocity = Vector2.ZERO
 	# Check input for "desired" velocity
 	input_velocity.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
@@ -78,6 +78,7 @@ func check_ray_collision():
 				reflector_ray = new_ray.instance()
 				reflector_ray.global_position = new_ray_position
 				get_tree().get_root().add_child(reflector_ray)
+				
 			else:			
 				print(ray.cast_to)
 				reflector_ray.global_position = new_ray_position
