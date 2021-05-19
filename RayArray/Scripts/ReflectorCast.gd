@@ -24,7 +24,7 @@ func check_ray_collision():
 			if reflector_ray == null :
 				reflector_ray = new_ray.instance()
 				reflector_ray.global_position = new_ray_position
-				get_tree().get_root().add_child(reflector_ray)
+				add_child(reflector_ray)
 			else:			
 				print(cast_to)
 				reflector_ray.global_position = new_ray_position
