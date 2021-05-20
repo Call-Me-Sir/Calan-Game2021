@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Mirror.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Playerspaceshipkinematic.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Red Laser Contraption.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prototile.tscn" type="PackedScene" id=3]
 
 [node name="Level 1" type="Node"]
@@ -14,16 +14,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Playerspaceshipkinematic" parent="." instance=ExtResource( 2 )]
-
 [node name="Mirror" parent="." instance=ExtResource( 1 )]
 position = Vector2( 335.85, 135.611 )
 rotation = 0.505658
 collision_layer = 2
 
 [node name="Mirror2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 152 )
-rotation = 2.20222
+position = Vector2( 104, 192 )
+rotation = 1.78355
+collision_layer = 2
+
+[node name="Mirror3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 152, 136 )
+rotation = -1.02195
 collision_layer = 2
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -65,3 +68,5 @@ position = Vector2( 336, 64 )
 
 [node name="Prototile12" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 368, 64 )
+
+[node name="Red Laser Contraption" parent="." instance=ExtResource( 2 )]

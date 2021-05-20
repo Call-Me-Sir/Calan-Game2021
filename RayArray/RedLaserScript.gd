@@ -7,41 +7,45 @@ onready var beam_end = $RayCast2D/End
 onready var ray = $RayCast2D
 onready var new_ray = preload("res://ReflectorCast.tscn")
 var reflector_ray = null
-var max_ray_cast = 1000
+var max_ray_cast = 2000
 
-func _process(delta):
+func _physics_process(delta):
+	beam.region_rect.end.x = beam_end.position.length()
+
 	check_ray_collision()
-	if get_tree().get_root().has_node("Playerspacehipkinematic") or Input.is_action_pressed("speedup"):
-		ray_and_beam(delta)
+	if get_parent().name == "Playerspaceshipkinematic":
+		ray_and_beam(get_local_mouse_position())
 
-func ray_and_beam(delta):
-	var mouse_position = get_local_mouse_position()
+func ray_and_beam(mouse_position = Vector2.RIGHT*max_ray_cast):#Turns on laser by default
+	
 	ray.cast_to = mouse_position.normalized() * max_ray_cast
 	$RayCast2D/RedLaserSprite.rotation = mouse_position.angle()
 	beam.rotation = ray.cast_to.angle()
-	beam.region_rect.end.x = beam_end.position.length()
 
 func check_ray_collision():	
 	if ray.is_colliding():		
+		#Variables that specify the characteristics of new reflected or refracted rays
 		var new_ray_position = ray.get_collision_point()
 		var new_ray_angle = ray.get_collision_normal()
-		var optic_device = ray.get_collider_shape()
 		beam_end.global_position = ray.get_collision_point()
-		print(optic_device)
+		#If object is mirror, reflect by creating new ray
 		if ray.get_collider().is_in_group("Mirror"):
 			$RayCast2D/End/EndParticles.emitting = false
 			$RayCast2D/End/EndParticles.hide()
+			#Create reflect ray if none already exists
 			if reflector_ray == null :
 				reflector_ray = new_ray.instance()
 				reflector_ray.global_position = new_ray_position
-				#add_child(reflector_ray)
-				
+				add_child(reflector_ray)
+			#If ray already exists, move the ray depending on the parent ray
 			else:			
 				print(ray.cast_to)
 				reflector_ray.global_position = new_ray_position
-				var r = ray.cast_to.bounce(ray.get_collision_normal())
+				var r = ray.cast_to.bounce(new_ray_angle)
 				reflector_ray.cast_to = r 
 				
+#If hitting opaque objects such as a wall, no new rays are made, 
+#start emmitting particles and delete reflected/refracted children rays
 		else:
 			$RayCast2D/End/EndParticles.set_emitting(true)
 			$RayCast2D/End/EndParticles.show()
@@ -60,8 +64,9 @@ func check_ray_collision():
 			reflector_ray = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	ray_and_beam()
+	pass
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

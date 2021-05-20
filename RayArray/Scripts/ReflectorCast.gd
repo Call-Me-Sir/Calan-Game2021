@@ -9,7 +9,11 @@ onready var beam_end = $End
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+func _process(delta):
+	beam.rotation = cast_to.angle()
+	beam.region_rect.end.x = beam_end.position.length()
+	check_ray_collision()
+	ray_casting(delta)
 
 func check_ray_collision():	
 	if is_colliding():
@@ -28,7 +32,7 @@ func check_ray_collision():
 			else:			
 				print(cast_to)
 				reflector_ray.global_position = new_ray_position
-				var r = cast_to.bounce(get_collision_normal())
+				var r = cast_to.bounce(new_ray_angle)
 				reflector_ray.cast_to = r 
 				#reflector_ray.rotation = ray.get_collision_normal() - ray.get_parent().rotation
 		else:
@@ -49,11 +53,7 @@ func check_ray_collision():
 			reflector_ray = null
 
 # Called when the node enters the scene tree for the first time.
-func _process(delta):
-	beam.rotation = cast_to.angle()
-	beam.region_rect.end.x = beam_end.position.length()
-	check_ray_collision()
-	ray_casting(delta)
+
 
 func ray_casting(delta):
 	#ray.cast_to = 

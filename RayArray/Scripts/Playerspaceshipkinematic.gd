@@ -54,63 +54,9 @@ func _process(delta):
 		# If there's no input, slow down to (0, 0)
 		velocity = velocity.linear_interpolate(Vector2.ZERO, friction)
 	velocity = move_and_slide(velocity)
-	ray_and_beam(delta)
-	check_ray_collision()
-
-func ray_and_beam(delta):
-	var mouse_position = get_local_mouse_position()
-	ray.cast_to = mouse_position.normalized() * max_ray_cast
-	$RayCast2D/RedLaserSprite.rotation = mouse_position.angle()
-	beam.rotation = ray.cast_to.angle()
-	beam.region_rect.end.x = beam_end.position.length()
-
-func check_ray_collision():	
-	if ray.is_colliding():		
-		var new_ray_position = ray.get_collision_point()
-		var new_ray_angle = ray.get_collision_normal()
-		var optic_device = ray.get_collider_shape()
-		beam_end.global_position = ray.get_collision_point()
-		print(optic_device)
-		if ray.get_collider().is_in_group("Mirror"):
-			$RayCast2D/End/EndParticles.emitting = false
-			$RayCast2D/End/EndParticles.hide()
-			if reflector_ray == null :
-				reflector_ray = new_ray.instance()
-				reflector_ray.global_position = new_ray_position
-				#add_child(reflector_ray)
-				
-			else:			
-				print(ray.cast_to)
-				reflector_ray.global_position = new_ray_position
-				var r = ray.cast_to.bounce(ray.get_collision_normal())
-				reflector_ray.cast_to = r 
-				
-		else:
-			$RayCast2D/End/EndParticles.set_emitting(true)
-			$RayCast2D/End/EndParticles.show()
-			var c = ray.get_collision_normal()
-			var b = ray.cast_to.bounce(c)
-			$RayCast2D/End/EndParticles.rotation = c.angle()# + 0.5*b.angle()
-			if reflector_ray != null:
-				reflector_ray.queue_free()
-				reflector_ray = null
-	else:
-		$RayCast2D/End/EndParticles.emitting = false
-		$RayCast2D/End/EndParticles.hide()
-		beam_end.global_position = ray.cast_to
-		if reflector_ray != null:
-			reflector_ray.queue_free()
-			reflector_ray = null
-		
-
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
