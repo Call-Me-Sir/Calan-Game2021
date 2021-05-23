@@ -22,7 +22,9 @@ func set_speed(s,f):
 	speed = s
 	friction = f
 
-
+func deploy_check():
+	if Input.is_action_just_pressed("Deploy&Pickup"):
+		remove_child($"Red Laser Contraption")
 
 func thrust_animation():
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("slowdown"):
@@ -57,6 +59,7 @@ func _process(delta):
 		# If there's no input, slow down to (0, 0)
 		velocity = velocity.linear_interpolate(Vector2.ZERO, friction)
 	velocity = move_and_slide(velocity)
+	deploy_check()
 
 
 

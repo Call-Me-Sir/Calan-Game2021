@@ -10,25 +10,25 @@
 [ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_05.png" type="Texture" id=9]
 [ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_06.png" type="Texture" id=10]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "Small Right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": false,
-"name": "Full Right",
-"speed": 5.0
-}, {
 "frames": [ null, ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "Thrust Right",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "Full Right",
+"speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 39.0128
 
 [node name="Playerspaceshipkinematic" type="KinematicBody2D"]
@@ -41,7 +41,7 @@ texture = ExtResource( 1 )
 polygon = PoolVector2Array( -25, -17, -25, -11, -19, -11, -19, 11, -25, 11, -25, 17, -19, 17, -19, 19, -17, 19, -17, 25, -11, 25, -11, 19, 11, 19, 11, 25, 17, 25, 17, 19, 19, 19, 19, 17, 25, 17, 25, 11, 19, 11, 19, -11, 25, -11, 25, -17, 19, -17, 19, -19, 17, -19, 17, -25, 11, -25, 11, -19, -11, -19, -11, -25, -17, -25, -17, -19, -19, -19, -19, -17 )
 
 [node name="SpaceshipThrust" type="AnimatedSprite" parent="."]
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "Small Right"
 playing = true
 
@@ -51,4 +51,4 @@ position = Vector2( 0, 0 )
 [node name="PickupArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )

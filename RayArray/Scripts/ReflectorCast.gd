@@ -6,6 +6,7 @@ onready var new_ray = load("res://ReflectorCast.tscn")
 onready var beam = $Beam
 var reflector_ray = null
 onready var beam_end = $End
+var max_ray_cast = 2000
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -33,7 +34,7 @@ func check_ray_collision():
 				print(cast_to)
 				reflector_ray.global_position = new_ray_position
 				var r = cast_to.bounce(new_ray_angle)
-				reflector_ray.cast_to = r 
+				reflector_ray.cast_to = r
 				#reflector_ray.rotation = ray.get_collision_normal() - ray.get_parent().rotation
 		else:
 			$End/EndParticles.set_emitting(true)
