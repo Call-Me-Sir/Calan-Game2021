@@ -10,6 +10,7 @@ export var acceleration = 0.15
 var velocity = Vector2.ZERO
 var max_ray_cast = 1000
 
+
 onready var _animated_sprite = $SpaceshipThrust
 onready var beam = $RayCast2D/Beam
 onready var beam_end = $RayCast2D/End
@@ -20,6 +21,8 @@ var reflector_ray = null
 func set_speed(s,f):
 	speed = s
 	friction = f
+
+
 
 func thrust_animation():
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("slowdown"):
@@ -54,6 +57,7 @@ func _process(delta):
 		# If there's no input, slow down to (0, 0)
 		velocity = velocity.linear_interpolate(Vector2.ZERO, friction)
 	velocity = move_and_slide(velocity)
+
 
 
 

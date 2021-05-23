@@ -9,9 +9,14 @@ onready var new_ray = preload("res://ReflectorCast.tscn")
 var reflector_ray = null
 var max_ray_cast = 2000
 
+func deploy_check():
+	if Input.is_action_just_pressed("Deploy&Pickup"):
+		if get_parent().name == "Playerspaceshipkinematic":
+			pass
+
 func _physics_process(delta):
 	beam.region_rect.end.x = beam_end.position.length()
-
+	deploy_check()
 	check_ray_collision()
 	if get_parent().name == "Playerspaceshipkinematic":
 		ray_and_beam(get_local_mouse_position())

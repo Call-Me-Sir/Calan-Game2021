@@ -5,7 +5,8 @@ extends RayCast2D
 # var a = 2
 # var b = "text"
 
-var mousepositoion
+var speedup = 3
+var slowdown = 1/3
 
 func _process(delta):
 	pass
