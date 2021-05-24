@@ -14,7 +14,7 @@ func deploy_check():
 		if get_parent().name == "Playerspaceshipkinematic":
 			pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	beam.region_rect.end.x = beam_end.position.length()
 	deploy_check()
 	check_ray_collision()

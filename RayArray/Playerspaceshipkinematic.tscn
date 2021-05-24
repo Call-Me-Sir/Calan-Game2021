@@ -12,6 +12,11 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "Full Right",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "Small Right",
@@ -21,11 +26,6 @@ animations = [ {
 "loop": false,
 "name": "Thrust Right",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": false,
-"name": "Full Right",
-"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]

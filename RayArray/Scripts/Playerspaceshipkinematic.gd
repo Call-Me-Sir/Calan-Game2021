@@ -10,13 +10,9 @@ export var acceleration = 0.15
 var velocity = Vector2.ZERO
 var max_ray_cast = 1000
 
-
+onready var red_laser = preload("res://Red Laser Contraption.tscn")
 onready var _animated_sprite = $SpaceshipThrust
-onready var beam = $RayCast2D/Beam
-onready var beam_end = $RayCast2D/End
-onready var ray = $RayCast2D
-onready var new_ray = preload("res://ReflectorCast.tscn")
-var reflector_ray = null
+var world_laser = null
 
 func set_speed(s,f):
 	speed = s
@@ -24,7 +20,15 @@ func set_speed(s,f):
 
 func deploy_check():
 	if Input.is_action_just_pressed("Deploy&Pickup"):
-		remove_child($"Red Laser Contraption")
+		if world_laser == null:
+			world_laser = red_laser.instance()
+			world_laser.global_position = $"Red Laser Contraption".global_position
+			world_laser.global_rotation = get_local_mouse_position().angle()
+			get_parent().add_child(world_laser)
+			remove_child($"Red Laser Contraption")
+		else:
+			pass 
+		
 
 func thrust_animation():
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("slowdown"):
@@ -37,7 +41,7 @@ func thrust_animation():
 		_animated_sprite.play("Thrust Right", true)
 	
 
-func _process(delta):
+func _process(_delta):
 	var input_velocity = Vector2.ZERO
 	# Check input for "desired" velocity
 	input_velocity.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")

@@ -56,7 +56,7 @@ func check_ray_collision():
 # Called when the node enters the scene tree for the first time.
 
 
-func ray_casting(delta):
+func ray_casting(_delta):
 	#ray.cast_to = 
 	pass
 
