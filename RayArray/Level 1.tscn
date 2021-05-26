@@ -14,6 +14,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Playerspaceshipkinematic" parent="." instance=ExtResource( 2 )]
+position = Vector2( 200, 72 )
+
 [node name="Mirror" parent="." instance=ExtResource( 1 )]
 position = Vector2( 335.85, 135.611 )
 rotation = 0.505658
@@ -68,5 +71,3 @@ position = Vector2( 336, 64 )
 
 [node name="Prototile12" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 368, 64 )
-
-[node name="Playerspaceshipkinematic" parent="." instance=ExtResource( 2 )]

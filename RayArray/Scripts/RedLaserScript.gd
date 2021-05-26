@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 
 # Declare member variables here. Examples:
@@ -25,6 +25,7 @@ func ray_and_beam(mouse_position = Vector2.RIGHT*max_ray_cast):#Turns on laser b
 	
 	ray.cast_to = mouse_position.normalized() * max_ray_cast
 	$RayCast2D/RedLaserSprite.rotation = mouse_position.angle()
+	$CollisionShape2D.rotation = mouse_position.angle()
 	beam.rotation = ray.cast_to.angle()
 
 func check_ray_collision():	

@@ -20,12 +20,13 @@ func set_speed(s,f):
 
 func deploy_check():
 	if Input.is_action_just_pressed("Deploy&Pickup"):
-		if world_laser == null:
+		if get_node("Red Laser Contraption"):
 			world_laser = red_laser.instance()
 			world_laser.global_position = $"Red Laser Contraption".global_position
 			world_laser.global_rotation = get_local_mouse_position().angle()
 			get_parent().add_child(world_laser)
 			remove_child($"Red Laser Contraption")
+			
 		else:
 			pass 
 		

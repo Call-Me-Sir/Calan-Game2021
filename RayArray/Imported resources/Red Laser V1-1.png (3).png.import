@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Red Laser V1-1.png (1).png-647b9be9a309200c85cf6daaaea518f1.stex"
+path="res://.import/Red Laser V1-1.png (3).png-8e52c47231713295628ad50c417196a0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imported resources/Red Laser V1-1.png (1).png"
-dest_files=[ "res://.import/Red Laser V1-1.png (1).png-647b9be9a309200c85cf6daaaea518f1.stex" ]
+source_file="res://Imported resources/Red Laser V1-1.png (3).png"
+dest_files=[ "res://.import/Red Laser V1-1.png (3).png-8e52c47231713295628ad50c417196a0.stex" ]
 
 [params]
 
