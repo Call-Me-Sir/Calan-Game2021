@@ -13,6 +13,7 @@ var max_ray_cast = 1000
 onready var red_laser = preload("res://Red Laser Contraption.tscn")
 onready var _animated_sprite = $SpaceshipThrust
 var world_laser = null
+var lasers = 1
 
 func set_speed(s,f):
 	speed = s
@@ -28,7 +29,8 @@ func deploy_check():
 			remove_child($"Red Laser Contraption")
 			
 		else:
-			pass 
+			
+			pass
 		
 
 func thrust_animation():
@@ -71,4 +73,13 @@ func _process(_delta):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass # Replace with function body.
+
+
+
+func _on_PickupArea_area_entered():
+	pass # Replace with function body.
+
+
+func _on_PickupArea_area_exited(area):
 	pass # Replace with function body.

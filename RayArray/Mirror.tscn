@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Imported resources/Game Mirror V1(Get back to this)-1.png.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/NonLaserScripts.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.93334, 7.17012 )
@@ -8,6 +9,7 @@ extents = Vector2( 4.93334, 7.17012 )
 [node name="Mirror" type="StaticBody2D" groups=[
 "Mirror",
 ]]
+script = ExtResource( 2 )
 
 [node name="MirrorTexture" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -23,3 +25,6 @@ shape = SubResource( 1 )
 position = Vector2( -1, 0 )
 scale = Vector2( 0.608107, -2.09202 )
 shape = SubResource( 1 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
