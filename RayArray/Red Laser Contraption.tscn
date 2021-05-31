@@ -26,7 +26,9 @@ blend_mode = 1
 radius = 5.0
 height = 1.5
 
-[node name="Red Laser Contraption" type="StaticBody2D"]
+[node name="Red Laser Contraption" type="StaticBody2D" groups=[
+"Pickupable",
+]]
 position = Vector2( 25, 18 )
 script = ExtResource( 3 )
 

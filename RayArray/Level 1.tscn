@@ -71,3 +71,7 @@ position = Vector2( 336, 64 )
 
 [node name="Prototile12" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 368, 64 )
+
+[node name="Mirror4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, 144 )
+rotation = 0.505658

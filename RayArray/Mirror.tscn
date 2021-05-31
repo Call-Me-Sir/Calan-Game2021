@@ -8,6 +8,7 @@ extents = Vector2( 4.93334, 7.17012 )
 
 [node name="Mirror" type="StaticBody2D" groups=[
 "Mirror",
+"Pickupable",
 ]]
 script = ExtResource( 2 )
 
