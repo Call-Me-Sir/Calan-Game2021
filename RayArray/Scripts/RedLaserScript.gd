@@ -8,6 +8,7 @@ onready var ray = $RayCast2D
 onready var new_ray = preload("res://ReflectorCast.tscn")
 var reflector_ray = null
 var max_ray_cast = 2000
+var prev = null
 
 func deploy_check():
 	if Input.is_action_just_pressed("Deploy&Pickup"):
@@ -29,15 +30,20 @@ func ray_and_beam(mouse_position = Vector2.RIGHT*max_ray_cast):#Turns on laser b
 	beam.rotation = ray.cast_to.angle()
 
 func check_ray_collision():	
-	if ray.is_colliding():		
+	if ray.is_colliding():
+		ray.force_raycast_update()
 		#Variables that specify the characteristics of new reflected or refracted rays
 		var new_ray_position = ray.get_collision_point()
 		var new_ray_angle = ray.get_collision_normal()
 		beam_end.global_position = ray.get_collision_point()
+		var coll = ray.get_collider()
 		#If object is mirror, reflect by creating new ray
+		if new_ray_angle == Vector2.ZERO:
+			return
 		if ray.get_collider().is_in_group("Mirror"):
 			$RayCast2D/End/EndParticles.emitting = false
 			$RayCast2D/End/EndParticles.hide()
+			
 			#Create reflect ray if none already exists
 			if reflector_ray == null :
 				reflector_ray = new_ray.instance()
