@@ -10,6 +10,8 @@ extents = Vector2( 4.93334, 7.17012 )
 "Mirror",
 "Pickupable",
 ]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="MirrorTexture" type="Sprite" parent="."]

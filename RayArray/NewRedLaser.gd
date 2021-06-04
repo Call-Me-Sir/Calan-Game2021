@@ -5,7 +5,7 @@ extends Node2D
 onready var ray = $RayCast2D
 onready var line = $Line2D
 
-
+var max_bounces = 10
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -16,10 +16,11 @@ func _process(delta):
 	line.clear_points()
 	line.add_point(Vector2.ZERO)
 	ray.global_position = line.global_position
-	#if get_parent().name == "Playerspaceshipkinematic":
+	if get_parent().name == "Playerspaceshipkinematic" or Input.is_mouse_button_pressed(BUTTON_LEFT):
+		$RedLaserSprite.rotation = get_local_mouse_position().angle()
 	ray.cast_to = (get_global_mouse_position()-line.global_position).normalized()* 1000
-	#else:
 	var prev = null
+	var bounces = 0
 	ray.force_raycast_update()
 	while true:
 		if not ray.is_colliding():
@@ -38,10 +39,16 @@ func _process(delta):
 			break
 		if prev != null:
 			prev.collision_mask = 3
-			prev.collision_lauer = 3
+			prev.collision_layer = 3
 		prev = coll
 		prev.collision_mask = 0
 		prev.collision_layer = 0
 		ray.global_position = pt
 		ray.cast_to = ray.cast_to.bounce(normal)
 		ray.force_raycast_update()
+		bounces += 1
+		if bounces >= max_bounces:
+			break
+	if prev != null:
+		prev.collision_mask = 3
+		prev.collision_layer = 3

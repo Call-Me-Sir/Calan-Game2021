@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Mirror.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Playerspaceshipkinematic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prototile.tscn" type="PackedScene" id=3]
-[ext_resource path="res://LaserExperiment.tscn" type="PackedScene" id=4]
 
 [node name="Level 1" type="Node"]
 
@@ -18,25 +17,18 @@ __meta__ = {
 [node name="Playerspaceshipkinematic" parent="." instance=ExtResource( 2 )]
 position = Vector2( 200, 72 )
 
-[node name="Mirror" parent="." instance=ExtResource( 1 )]
-position = Vector2( 335.85, 135.611 )
-rotation = 0.505658
+[node name="Mirror6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 93.5, 221 )
+rotation = 1.59533
 collision_layer = 2
 
-[node name="Mirror2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 104, 192 )
-rotation = 1.78355
-collision_layer = 2
-
-[node name="Mirror3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 152, 136 )
-rotation = -1.02195
-scale = Vector2( 3, 3 )
+[node name="Mirror7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 260.5, 62.5 )
+rotation = -0.0165683
 collision_layer = 2
 
 [node name="Tiles" type="Node2D" parent="."]
-position = Vector2( 56, 224 )
-rotation = -0.654178
+position = Vector2( 0, 520 )
 
 [node name="Prototile" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 16, 64 )
@@ -74,10 +66,74 @@ position = Vector2( 336, 64 )
 [node name="Prototile12" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 368, 64 )
 
-[node name="Mirror4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 64, 144 )
-rotation = 0.505658
-collision_layer = 2
+[node name="Prototile13" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 400, 64 )
 
-[node name="Node2D" parent="." instance=ExtResource( 4 )]
-position = Vector2( 99, 118 )
+[node name="Prototile14" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 432, 64 )
+
+[node name="Prototile15" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 464, 64 )
+
+[node name="Prototile16" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 496, 64 )
+
+[node name="Prototile17" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 528, 64 )
+
+[node name="Prototile18" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 560, 64 )
+
+[node name="Prototile19" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 592, 64 )
+
+[node name="Prototile20" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 624, 64 )
+
+[node name="Prototile21" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 656, 64 )
+
+[node name="Prototile22" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 688, 64 )
+
+[node name="Prototile23" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 720, 64 )
+
+[node name="Prototile24" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 752, 64 )
+
+[node name="Prototile25" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 784, 64 )
+
+[node name="Prototile26" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 816, 64 )
+
+[node name="Prototile27" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 848, 64 )
+
+[node name="Prototile28" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 880, 64 )
+
+[node name="Prototile29" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 912, 64 )
+
+[node name="Prototile30" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 944, 64 )
+
+[node name="Prototile31" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 976, 64 )
+
+[node name="Prototile32" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, 64 )
+
+[node name="Prototile33" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -64 )
+
+[node name="Prototile34" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, 0 )
+
+[node name="Prototile35" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -32 )
+
+[node name="Prototile36" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, 32 )
