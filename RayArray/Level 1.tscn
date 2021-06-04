@@ -22,6 +22,31 @@ position = Vector2( 93.5, 221 )
 rotation = 1.59533
 collision_layer = 2
 
+[node name="Mirror8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 224, 384 )
+rotation = 1.59533
+collision_layer = 2
+
+[node name="Mirror9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 168, 392 )
+rotation = 1.59533
+collision_layer = 2
+
+[node name="Mirror10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 136, 392 )
+rotation = 1.59533
+collision_layer = 2
+
+[node name="Mirror11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 232 )
+rotation = 1.59533
+collision_layer = 2
+
+[node name="Mirror12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 208, 224 )
+rotation = 1.59533
+collision_layer = 2
+
 [node name="Mirror7" parent="." instance=ExtResource( 1 )]
 position = Vector2( 260.5, 62.5 )
 rotation = -0.0165683
