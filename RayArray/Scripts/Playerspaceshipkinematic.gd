@@ -77,9 +77,9 @@ func _ready():
 
 
 
-func _on_PickupArea_area_entered():
-	pass # Replace with function body.
+#func _on_PickupArea_area_entered():
+	#pass # Replace with function body.
 
 
-func _on_PickupArea_area_exited(area):
-	pass # Replace with function body.
+#func _on_PickupArea_area_exited(area):
+#	pass # Replace with function body.

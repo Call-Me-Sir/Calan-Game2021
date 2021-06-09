@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Mirror.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Playerspaceshipkinematic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prototile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
 
 [node name="Level 1" type="Node"]
 
@@ -15,41 +18,62 @@ __meta__ = {
 }
 
 [node name="Playerspaceshipkinematic" parent="." instance=ExtResource( 2 )]
-position = Vector2( 200, 72 )
+position = Vector2( 960, 160 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Mirror6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 93.5, 221 )
+position = Vector2( 128, 232 )
 rotation = 1.59533
 collision_layer = 2
 
 [node name="Mirror8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 224, 384 )
+position = Vector2( 200, 384 )
 rotation = 1.59533
 collision_layer = 2
 
 [node name="Mirror9" parent="." instance=ExtResource( 1 )]
-position = Vector2( 168, 392 )
+position = Vector2( 168, 384 )
 rotation = 1.59533
 collision_layer = 2
 
 [node name="Mirror10" parent="." instance=ExtResource( 1 )]
-position = Vector2( 136, 392 )
+position = Vector2( 136, 384 )
 rotation = 1.59533
 collision_layer = 2
 
 [node name="Mirror11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 160, 232 )
-rotation = 1.59533
+position = Vector2( 176, 208 )
+rotation = -0.0916293
 collision_layer = 2
 
 [node name="Mirror12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 208, 224 )
+position = Vector2( 208, 208 )
+rotation = 3.11811
+collision_layer = 2
+
+[node name="Mirror15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 176, 176 )
+rotation = -0.0916293
+collision_layer = 2
+
+[node name="Mirror16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 208, 176 )
+rotation = 3.11811
+collision_layer = 2
+
+[node name="Mirror13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 192, 224 )
+rotation = 1.58293
+collision_layer = 2
+
+[node name="Mirror14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 248, 216 )
 rotation = 1.59533
 collision_layer = 2
 
 [node name="Mirror7" parent="." instance=ExtResource( 1 )]
 position = Vector2( 260.5, 62.5 )
-rotation = -0.0165683
 collision_layer = 2
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -162,3 +186,57 @@ position = Vector2( 1008, -32 )
 
 [node name="Prototile36" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 1008, 32 )
+
+[node name="Prototile37" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -96 )
+
+[node name="Prototile38" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -224 )
+
+[node name="Prototile39" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -160 )
+
+[node name="Prototile40" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -192 )
+
+[node name="Prototile41" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -128 )
+
+[node name="Prototile42" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, 32 )
+
+[node name="Prototile43" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -96 )
+
+[node name="Prototile44" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -32 )
+
+[node name="Prototile45" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -64 )
+
+[node name="Prototile46" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, 0 )
+
+[node name="Prototile47" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -128 )
+
+[node name="Prototile48" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -256 )
+
+[node name="Prototile49" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -192 )
+
+[node name="Prototile50" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -224 )
+
+[node name="Prototile51" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -160 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 232, 24 )
+shape = SubResource( 1 )
+
+[node name="Door" parent="." instance=ExtResource( 4 )]
+position = Vector2( 96, 80 )

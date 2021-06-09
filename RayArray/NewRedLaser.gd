@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 
 # Declare member variables here. Examples:
@@ -52,3 +52,8 @@ func _process(delta):
 	if prev != null:
 		prev.collision_mask = 3
 		prev.collision_layer = 3
+		
+	
+	if ray.is_colliding():
+		if ray.get_collider().name == "Sensor":
+			ray.get_collider().emit_signal("RayHit")
