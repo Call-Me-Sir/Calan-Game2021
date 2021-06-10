@@ -18,7 +18,7 @@ __meta__ = {
 }
 
 [node name="Playerspaceshipkinematic" parent="." instance=ExtResource( 2 )]
-position = Vector2( 960, 160 )
+position = Vector2( 408, 160 )
 collision_layer = 5
 collision_mask = 5
 
@@ -232,6 +232,27 @@ position = Vector2( 16, -224 )
 [node name="Prototile51" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 16, -160 )
 
+[node name="Prototile52" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -320 )
+
+[node name="Prototile53" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -288 )
+
+[node name="Prototile54" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -352 )
+
+[node name="Prototile55" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -480 )
+
+[node name="Prototile56" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -416 )
+
+[node name="Prototile57" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -448 )
+
+[node name="Prototile58" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -384 )
+
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
@@ -239,4 +260,4 @@ position = Vector2( 232, 24 )
 shape = SubResource( 1 )
 
 [node name="Door" parent="." instance=ExtResource( 4 )]
-position = Vector2( 96, 80 )
+position = Vector2( 112, 120 )

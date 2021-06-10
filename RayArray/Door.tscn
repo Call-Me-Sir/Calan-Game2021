@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sensor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Door.gd" type="Script" id=2]
@@ -7,21 +7,57 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 72 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "DoorOpen"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -72 ), Vector2( 0, 72 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -72 ), Vector2( 0, 72 ) ]
+}
+
 [node name="Door" type="StaticBody2D"]
 collision_layer = 7
 collision_mask = 7
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -72 )
 shape = SubResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 0, -72 )
 color = Color( 0.533333, 0.533333, 0.533333, 1 )
 polygon = PoolVector2Array( -8, -72, 8, -72, 8, 72, -8, 72 )
 
 [node name="Sensor" parent="." instance=ExtResource( 1 )]
+position = Vector2( 248, -48 )
 collision_layer = 7
 collision_mask = 7
 script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/DoorOpen = SubResource( 2 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 0, 248, -48 )
 
 [connection signal="RayHit" from="Sensor" to="." method="_on_Sensor_RayHit"]
