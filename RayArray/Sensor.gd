@@ -14,4 +14,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if not is_connected("RayHit", StaticBody2D, "Door"):
+		emit_signal("Laserfalse")
