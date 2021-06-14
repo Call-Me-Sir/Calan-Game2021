@@ -1,6 +1,7 @@
 extends StaticBody2D
 var open = false
 onready var line = $Line2D
+signal laserfalse
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -9,17 +10,16 @@ onready var line = $Line2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	line.clear_points()
-	line.add_point(Vector2.ZERO)
-	
-	line.add_point($Polygon2D.global_position) # Replace with function body.
+	line.add_point($Sensor.position)
+	line.add_point(Vector2.ZERO) # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-	#if not _on_sensor_RayHit():
-		#open == false
-		#$AnimationPlayer.play_backwards("DoorOpen")
+	if open == true:
+		pass
+	elif open == false:
+		$AnimationPlayer.play_backwards("DoorOpen")
 
 
 func _on_Sensor_RayHit():
@@ -29,3 +29,8 @@ func _on_Sensor_RayHit():
 	print("Hit!") # Replace with function body.
 	
 	
+func _on_Sensor_Laserfalse():
+	if open == true:
+		$AnimationPlayer.play_backwards("DoorOpen")
+		open = false # Replace with function body.
+		print("Closing")

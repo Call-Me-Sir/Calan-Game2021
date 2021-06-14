@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Mirror.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Playerspaceshipkinematic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prototile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=4]
-
-[sub_resource type="CircleShape2D" id=1]
 
 [node name="Level 1" type="Node"]
 
@@ -25,55 +23,6 @@ collision_mask = 5
 [node name="Mirror6" parent="." instance=ExtResource( 1 )]
 position = Vector2( 128, 232 )
 rotation = 1.59533
-collision_layer = 2
-
-[node name="Mirror8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 200, 384 )
-rotation = 1.59533
-collision_layer = 2
-
-[node name="Mirror9" parent="." instance=ExtResource( 1 )]
-position = Vector2( 168, 384 )
-rotation = 1.59533
-collision_layer = 2
-
-[node name="Mirror10" parent="." instance=ExtResource( 1 )]
-position = Vector2( 136, 384 )
-rotation = 1.59533
-collision_layer = 2
-
-[node name="Mirror11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 176, 208 )
-rotation = -0.0916293
-collision_layer = 2
-
-[node name="Mirror12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 208, 208 )
-rotation = 3.11811
-collision_layer = 2
-
-[node name="Mirror15" parent="." instance=ExtResource( 1 )]
-position = Vector2( 176, 176 )
-rotation = -0.0916293
-collision_layer = 2
-
-[node name="Mirror16" parent="." instance=ExtResource( 1 )]
-position = Vector2( 208, 176 )
-rotation = 3.11811
-collision_layer = 2
-
-[node name="Mirror13" parent="." instance=ExtResource( 1 )]
-position = Vector2( 192, 224 )
-rotation = 1.58293
-collision_layer = 2
-
-[node name="Mirror14" parent="." instance=ExtResource( 1 )]
-position = Vector2( 248, 216 )
-rotation = 1.59533
-collision_layer = 2
-
-[node name="Mirror7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 260.5, 62.5 )
 collision_layer = 2
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -172,8 +121,119 @@ position = Vector2( 944, 64 )
 [node name="Prototile31" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 976, 64 )
 
+[node name="Prototile99" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 848, -112 )
+
+[node name="Prototile100" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 880, -112 )
+
+[node name="Prototile101" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 912, -112 )
+
+[node name="Prototile102" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 944, -112 )
+
+[node name="Prototile103" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 976, -112 )
+
 [node name="Prototile32" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 1008, 64 )
+
+[node name="Prototile59" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 16, -512 )
+
+[node name="Prototile60" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 48, -512 )
+
+[node name="Prototile61" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 80, -512 )
+
+[node name="Prototile62" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 112, -512 )
+
+[node name="Prototile63" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 144, -512 )
+
+[node name="Prototile64" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 176, -512 )
+
+[node name="Prototile65" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 208, -512 )
+
+[node name="Prototile66" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 240, -512 )
+
+[node name="Prototile67" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 272, -512 )
+
+[node name="Prototile68" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 304, -512 )
+
+[node name="Prototile69" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 336, -512 )
+
+[node name="Prototile70" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 368, -512 )
+
+[node name="Prototile71" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 400, -512 )
+
+[node name="Prototile72" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 432, -512 )
+
+[node name="Prototile73" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 464, -512 )
+
+[node name="Prototile74" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 496, -512 )
+
+[node name="Prototile75" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 528, -512 )
+
+[node name="Prototile76" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 560, -512 )
+
+[node name="Prototile77" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 592, -512 )
+
+[node name="Prototile78" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 624, -512 )
+
+[node name="Prototile79" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 656, -512 )
+
+[node name="Prototile80" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 688, -512 )
+
+[node name="Prototile81" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 720, -512 )
+
+[node name="Prototile82" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 752, -512 )
+
+[node name="Prototile83" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 784, -512 )
+
+[node name="Prototile84" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 816, -512 )
+
+[node name="Prototile85" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 848, -512 )
+
+[node name="Prototile86" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 880, -512 )
+
+[node name="Prototile87" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 912, -512 )
+
+[node name="Prototile88" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 944, -512 )
+
+[node name="Prototile89" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 976, -512 )
+
+[node name="Prototile90" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -512 )
 
 [node name="Prototile33" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 1008, -64 )
@@ -201,6 +261,30 @@ position = Vector2( 1008, -192 )
 
 [node name="Prototile41" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 1008, -128 )
+
+[node name="Prototile91" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -256 )
+
+[node name="Prototile92" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -288 )
+
+[node name="Prototile93" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -416 )
+
+[node name="Prototile94" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -352 )
+
+[node name="Prototile95" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -384 )
+
+[node name="Prototile97" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -480 )
+
+[node name="Prototile98" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -448 )
+
+[node name="Prototile96" parent="Tiles" instance=ExtResource( 3 )]
+position = Vector2( 1008, -320 )
 
 [node name="Prototile42" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 16, 32 )
@@ -253,11 +337,21 @@ position = Vector2( 16, -448 )
 [node name="Prototile58" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 16, -384 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Door2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 568, 280 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 232, 24 )
-shape = SubResource( 1 )
+[node name="Sensor" parent="Door2" index="2"]
+position = Vector2( -120, 16 )
 
 [node name="Door" parent="." instance=ExtResource( 4 )]
-position = Vector2( 112, 120 )
+position = Vector2( 840, 568 )
+
+[node name="Sensor" parent="Door" index="2"]
+position = Vector2( -792, -16 )
+rotation = 3.92699
+
+[node name="Line2D" parent="Door" index="4"]
+points = PoolVector2Array( 0, 0, 80, -16, 248, -48 )
+
+[editable path="Door2"]
+[editable path="Door"]

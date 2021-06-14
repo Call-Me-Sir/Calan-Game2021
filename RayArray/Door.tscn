@@ -60,4 +60,5 @@ anims/DoorOpen = SubResource( 2 )
 [node name="Line2D" type="Line2D" parent="."]
 points = PoolVector2Array( 0, 0, 248, -48 )
 
+[connection signal="Laserfalse" from="Sensor" to="." method="_on_Sensor_Laserfalse"]
 [connection signal="RayHit" from="Sensor" to="." method="_on_Sensor_RayHit"]
