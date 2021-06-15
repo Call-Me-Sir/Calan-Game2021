@@ -57,4 +57,4 @@ func _process(delta):
 	if ray.is_colliding():
 		if ray.get_collider().name == "Sensor":
 			ray.get_collider().emit_signal("RayHit")
-			print("hitting sensor")
+			

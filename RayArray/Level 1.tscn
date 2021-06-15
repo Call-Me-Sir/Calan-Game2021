@@ -25,6 +25,11 @@ position = Vector2( 128, 232 )
 rotation = 1.59533
 collision_layer = 2
 
+[node name="Mirror7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 208, 288 )
+rotation = 1.59533
+collision_layer = 2
+
 [node name="Tiles" type="Node2D" parent="."]
 position = Vector2( 0, 520 )
 
@@ -343,6 +348,9 @@ position = Vector2( 568, 280 )
 [node name="Sensor" parent="Door2" index="2"]
 position = Vector2( -120, 16 )
 
+[node name="Line2D" parent="Door2" index="4"]
+points = PoolVector2Array( 0, 0, 0, 24, -120, 24, -120, 8 )
+
 [node name="Door" parent="." instance=ExtResource( 4 )]
 position = Vector2( 840, 568 )
 
@@ -351,7 +359,8 @@ position = Vector2( -792, -16 )
 rotation = 3.92699
 
 [node name="Line2D" parent="Door" index="4"]
-points = PoolVector2Array( 0, 0, 80, -16, 248, -48 )
+points = PoolVector2Array( 0, 0, 0, 16, -800, 16, -800, -8 )
 
+[editable path="Mirror7"]
 [editable path="Door2"]
 [editable path="Door"]

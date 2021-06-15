@@ -29,11 +29,11 @@ func _process(delta):
 	rotation += rotation_dir * rotation_speed * delta
 
 func _on_Area2D_area_entered(area):
-	var pickupable = true
+	pickupable = true
 	print(pickupable)
 
 
 
 func _on_Area2D_area_exited(area):
-	var pickupable = false
+	pickupable = false
 	print(pickupable)
