@@ -25,17 +25,33 @@ func _process(delta):
 	#	$AnimationPlayer.play_backwards("DoorOpen")
 
 
-func _on_Sensor_RayHit():
-	if open == false:
-		$AnimationPlayer.play("DoorOpen")
-		open = true
-	print("Hit!") # Replace with function body.
-	
-	get_node("Sensor").lasercheck()
-	
-	
-func _on_Sensor_Laserfalse():
-	if open == true:
-		$AnimationPlayer.play_backwards("DoorOpen")
-		open = false
-		print("Closing")
+#func _on_Sensor_RayHit():
+#	if open == false:
+#		$AnimationPlayer.play("DoorOpen")
+#		open = true
+#	print("Hit!") # Replace with function body.
+#
+#	get_node("Sensor").lasercheck()
+#
+#
+#func _on_Sensor_Laserfalse():
+#	if open == true:
+#		$AnimationPlayer.play_backwards("DoorOpen")
+#		open = false
+#		print("Closing")
+
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("Laser"):
+		if open == false:
+			$AnimationPlayer.play("DoorOpen")
+			open = true
+		print("Hit!") # Replace with function body.
+
+
+func _on_Area2D_area_exited(area):
+	if area.is_in_group("Laser"):
+		if open == true:
+			$AnimationPlayer.play_backwards("DoorOpen")
+			open = false
+			print("Closing")

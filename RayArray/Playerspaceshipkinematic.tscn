@@ -1,21 +1,42 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Imported resources/Player space ship (WIP)-2.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Playerspaceshipkinematic.gd" type="Script" id=2]
 [ext_resource path="res://LaserExperiment.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_07.png" type="Texture" id=4]
 [ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_01.png" type="Texture" id=5]
 [ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_02.png" type="Texture" id=6]
 [ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_03.png" type="Texture" id=7]
 [ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_04.png" type="Texture" id=8]
 [ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_05.png" type="Texture" id=9]
 [ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_06.png" type="Texture" id=10]
+[ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_12.png" type="Texture" id=11]
+[ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_10.png" type="Texture" id=12]
+[ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_11.png" type="Texture" id=13]
+[ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_09.png" type="Texture" id=14]
+[ext_resource path="res://Imported resources/Player space ship Thrust animations/l0_sprite_08.png" type="Texture" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
-"loop": true,
+"loop": false,
 "name": "Small Right",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": false,
+"name": "Small Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": false,
+"name": "Full Up",
+"speed": 5.0
+}, {
+"frames": [ null, ExtResource( 4 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "Thrust Up",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": false,
@@ -27,6 +48,9 @@ animations = [ {
 "name": "Thrust Right",
 "speed": 15.0
 } ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 40.0
 
 [node name="Playerspaceshipkinematic" type="KinematicBody2D"]
 collision_layer = 4
@@ -41,13 +65,26 @@ polygon = PoolVector2Array( -25, -17, -25, -11, -19, -11, -19, 11, -25, 11, -25,
 
 [node name="SpaceshipThrust" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "Small Right"
-playing = true
+animation = "Thrust Right"
+
+[node name="SpaceshipThrust2" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Thrust Right"
+flip_h = true
+
+[node name="SpaceshipThrust3" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Thrust Up"
+
+[node name="SpaceshipThrust4" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Thrust Up"
+flip_v = true
 
 [node name="PickupArea" type="Area2D" parent="."]
 
-[node name="PickupAreaShape" type="CollisionPolygon2D" parent="PickupArea"]
-polygon = PoolVector2Array( -25, -17, -25, -11, -19, -11, -19, 11, -25, 11, -25, 17, -19, 17, -19, 19, -17, 19, -17, 25, -11, 25, -11, 19, 11, 19, 11, 25, 17, 25, 17, 19, 19, 19, 19, 17, 25, 17, 25, 11, 19, 11, 19, -11, 25, -11, 25, -17, 19, -17, 19, -19, 17, -19, 17, -25, 11, -25, 11, -19, -11, -19, -11, -25, -17, -25, -17, -19, -19, -19, -19, -17 )
+[node name="PickupAreaShape" type="CollisionShape2D" parent="PickupArea"]
+shape = SubResource( 2 )
 
 [node name="OpticStash" type="Node2D" parent="."]
 

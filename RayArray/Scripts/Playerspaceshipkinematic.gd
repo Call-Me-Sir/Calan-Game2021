@@ -12,6 +12,10 @@ var max_ray_cast = 1000
 
 onready var red_laser = preload("res://Red Laser Contraption.tscn")
 onready var _animated_sprite = $SpaceshipThrust
+onready var _animated_sprite2 = $SpaceshipThrust2
+onready var _animated_sprite3 = $SpaceshipThrust3
+onready var _animated_sprite4 = $SpaceshipThrust4
+
 var world_laser = null
 var lasers = 1
 
@@ -43,6 +47,32 @@ func thrust_animation():
 	elif Input.is_action_just_released("ui_right"):
 		_animated_sprite.play("Thrust Right", true)
 	
+	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("slowdown"):
+		_animated_sprite2.play("Small Right")
+	elif Input.is_action_pressed("ui_left"):
+		_animated_sprite2.play("Thrust Right")
+		if Input.is_action_pressed("speedup"):
+			_animated_sprite2.play("Full Right")
+	elif Input.is_action_just_released("ui_left"):
+		_animated_sprite2.play("Thrust Right", true)
+	
+	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("slowdown"):
+		_animated_sprite3.play("Small Up")
+	elif Input.is_action_pressed("ui_up"):
+		_animated_sprite3.play("Thrust Up")
+		if Input.is_action_pressed("speedup"):
+			_animated_sprite3.play("Full Up")
+	elif Input.is_action_just_released("ui_up"):
+		_animated_sprite3.play("Thrust Up", true)
+		
+	if Input.is_action_pressed("ui_down") and Input.is_action_pressed("slowdown"):
+		_animated_sprite4.play("Small Up")
+	elif Input.is_action_pressed("ui_down"):
+		_animated_sprite4.play("Thrust Up")
+		if Input.is_action_pressed("speedup"):
+			_animated_sprite4.play("Full Up")
+	elif Input.is_action_just_released("ui_down"):
+		_animated_sprite4.play("Thrust Up", true)
 
 func _process(_delta):
 	var input_velocity = Vector2.ZERO
