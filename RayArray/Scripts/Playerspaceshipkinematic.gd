@@ -10,7 +10,7 @@ export var acceleration = 0.15
 var velocity = Vector2.ZERO
 var max_ray_cast = 1000
 
-onready var red_laser = preload("res://Red Laser Contraption.tscn")
+onready var red_laser = preload("res://LaserExperiment.tscn")
 onready var _animated_sprite = $SpaceshipThrust
 onready var _animated_sprite2 = $SpaceshipThrust2
 onready var _animated_sprite3 = $SpaceshipThrust3
@@ -25,12 +25,13 @@ func set_speed(s,f):
 
 func deploy_check():
 	if Input.is_action_just_pressed("Deploy&Pickup"):
-		if get_node("Red Laser Contraption"):
+		if get_node("RedLaser"):
 			world_laser = red_laser.instance()
-			world_laser.global_position = $"Red Laser Contraption".global_position
+			world_laser.global_position = $RedLaser.global_position
 			world_laser.global_rotation = get_local_mouse_position().angle()
+			world_laser.name = "RedLaser"
 			get_parent().add_child(world_laser)
-			remove_child($"Red Laser Contraption")
+			remove_child($RedLaser)
 			
 		else:
 			
@@ -107,9 +108,9 @@ func _ready():
 
 
 
-#func _on_PickupArea_area_entered():
-	#pass # Replace with function body.
+func _on_PickupArea_area_entered(area):
+	print(area.name) # Replace with function body.
 
 
-#func _on_PickupArea_area_exited(area):
-#	pass # Replace with function body.
+func _on_PickupArea_area_exited(area):
+	pass # Replace with function body.

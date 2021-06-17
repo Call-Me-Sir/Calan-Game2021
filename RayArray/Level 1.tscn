@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Mirror.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Playerspaceshipkinematic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prototile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://LaserExperiment.tscn" type="PackedScene" id=5]
 
 [node name="Level 1" type="Node"]
 
@@ -26,8 +27,13 @@ rotation = 1.59533
 collision_layer = 2
 
 [node name="Mirror7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 208, 288 )
-rotation = 1.59533
+position = Vector2( 952, 160 )
+rotation = 2.25359
+collision_layer = 2
+
+[node name="Mirror8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 944, 224 )
+rotation = -0.0798136
 collision_layer = 2
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -366,6 +372,10 @@ position = Vector2( -6.10352e-05, 9.15527e-05 )
 [node name="Line2D" parent="Door" index="4"]
 points = PoolVector2Array( 0, 0, 0, 16, -792, 16, -792, 0 )
 
+[node name="NewRedLaser" parent="." instance=ExtResource( 5 )]
+position = Vector2( 808, 152 )
+
 [editable path="Mirror7"]
+[editable path="Mirror8"]
 [editable path="Door2"]
 [editable path="Door"]

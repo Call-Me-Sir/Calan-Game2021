@@ -28,16 +28,6 @@ animations = [ {
 "name": "Small Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
-"loop": false,
-"name": "Full Up",
-"speed": 5.0
-}, {
-"frames": [ null, ExtResource( 4 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ) ],
-"loop": false,
-"name": "Thrust Up",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": false,
 "name": "Full Right",
@@ -47,10 +37,20 @@ animations = [ {
 "loop": false,
 "name": "Thrust Right",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": false,
+"name": "Full Up",
+"speed": 5.0
+}, {
+"frames": [ null, ExtResource( 4 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "Thrust Up",
+"speed": 15.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 40.0
+radius = 32.0
 
 [node name="Playerspaceshipkinematic" type="KinematicBody2D"]
 collision_layer = 4
@@ -88,7 +88,7 @@ shape = SubResource( 2 )
 
 [node name="OpticStash" type="Node2D" parent="."]
 
-[node name="Node2D" parent="." instance=ExtResource( 3 )]
+[node name="RedLaser" parent="." instance=ExtResource( 3 )]
 
 [connection signal="area_entered" from="PickupArea" to="." method="_on_PickupArea_area_entered"]
 [connection signal="area_exited" from="PickupArea" to="." method="_on_PickupArea_area_exited"]
