@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0.227451, 0.219608 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Playerspaceshipkinematic" parent="." instance=ExtResource( 2 )]
@@ -375,6 +375,8 @@ points = PoolVector2Array( 0, 0, 0, 16, -792, 16, -792, 0 )
 [node name="NewRedLaser" parent="." instance=ExtResource( 5 )]
 position = Vector2( 808, 152 )
 
+[editable path="Playerspaceshipkinematic"]
+[editable path="Playerspaceshipkinematic/Mirror"]
 [editable path="Mirror7"]
 [editable path="Mirror8"]
 [editable path="Door2"]

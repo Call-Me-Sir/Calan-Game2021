@@ -11,31 +11,48 @@ var velocity = Vector2.ZERO
 var max_ray_cast = 1000
 
 onready var red_laser = preload("res://LaserExperiment.tscn")
+onready var mirror = preload("res://Mirror.tscn")
 onready var _animated_sprite = $SpaceshipThrust
 onready var _animated_sprite2 = $SpaceshipThrust2
 onready var _animated_sprite3 = $SpaceshipThrust3
 onready var _animated_sprite4 = $SpaceshipThrust4
 
-var world_laser = null
+var world_optic = null
 var lasers = 1
 
 func set_speed(s,f):
 	speed = s
 	friction = f
 
+#Mr Smith version of deploycheck
+func reparent_object(object, pickup = true):
+	var new = object.duplicate
+	if pickup:
+		add_child(new)
+		object.queue_free()
+	else:
+		get_parent().add_child(new)
+		object.queue_free()
+
+
 func deploy_check():
 	if Input.is_action_just_pressed("Deploy&Pickup"):
 		if get_node("RedLaser"):
-			world_laser = red_laser.instance()
-			world_laser.global_position = $RedLaser.global_position
-			world_laser.global_rotation = get_local_mouse_position().angle()
-			world_laser.name = "RedLaser"
-			get_parent().add_child(world_laser)
+			world_optic = red_laser.instance()
+			world_optic.global_position = $RedLaser.global_position
+			world_optic.global_rotation = get_local_mouse_position().angle()
+			world_optic.name = "RedLaser"
+			get_parent().add_child(world_optic)
 			remove_child($RedLaser)
 			
-		else:
-			
-			pass
+		elif get_node("Mirror"):
+			world_optic = mirror.instance()
+			world_optic.global_position = $Mirror.global_position
+			world_optic.global_rotation = $Mirror.global_rotation
+			world_optic.name = "Mirror"
+			get_parent().add_child(world_optic)
+			remove_child($Mirror)
+		#elif 
 		
 
 func thrust_animation():
@@ -98,7 +115,7 @@ func _process(_delta):
 		velocity = velocity.linear_interpolate(Vector2.ZERO, friction)
 	velocity = move_and_slide(velocity)
 	deploy_check()
-
+	#Call reparent object
 
 
 
