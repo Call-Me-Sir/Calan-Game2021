@@ -376,7 +376,6 @@ points = PoolVector2Array( 0, 0, 0, 16, -792, 16, -792, 0 )
 position = Vector2( 808, 152 )
 
 [editable path="Playerspaceshipkinematic"]
-[editable path="Playerspaceshipkinematic/Mirror"]
 [editable path="Mirror7"]
 [editable path="Mirror8"]
 [editable path="Door2"]
