@@ -25,14 +25,13 @@ func set_speed(s,f):
 	friction = f
 
 #Mr Smith version of deploycheck
-func reparent_object(object, pickup = true):
-	var new = object.duplicate
-	if pickup:
-		add_child(new)
-		object.queue_free()
-	else:
-		get_parent().add_child(new)
-		object.queue_free()
+func reparent_object(object):
+	var local_objects = $PickupArea.get_overlapping_bodies()
+	if object in local_objects:
+		if object.is_in_group("Pickupable") and object.pickupable == true:
+			var new = object.duplicate
+			add_child(new)
+			object.queue_free()
 
 
 func deploy_check():
@@ -52,7 +51,10 @@ func deploy_check():
 			world_optic.name = "Mirror"
 			get_parent().add_child(world_optic)
 			remove_child($Mirror)
-		#elif 
+		#Put more optical contraptions here
+		else:
+			pass
+			#reparent_object()
 		
 
 func thrust_animation():

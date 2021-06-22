@@ -39,12 +39,11 @@ func _on_Area2D_area_exited(area):
 	pickupable = false
 	print(pickupable)
 
-
-func _on_Area2D_mouse_entered():
+func _on_Mirror_mouse_entered():
 	mouse_in = true
 	print(mouse_in)
 
 
-func _on_Area2D_mouse_exited():
-	mouse_in = false # Replace with function body.
+func _on_Mirror_mouse_exited():
+	mouse_in = false
 	print(mouse_in)
