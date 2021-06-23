@@ -6,25 +6,25 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 1.41421
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 1, 0, 0, 1, 1, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=4]
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 100.0
 initial_velocity_random = 0.7
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 3 )
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=5]
 radius = 5.0
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=6]
 radius = 5.0
 
 [node name="RedLaser" type="StaticBody2D" groups=[
@@ -58,12 +58,12 @@ shape = SubResource( 1 )
 [node name="EndParticles" type="Particles2D" parent="RayCast2D/SensorCheck"]
 rotation = 3.14159
 amount = 200
-process_material = SubResource( 5 )
+process_material = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 0 )
 rotation = 1.57079
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -71,4 +71,4 @@ disabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -1, 0 )
 rotation = 1.57079
-shape = SubResource( 3 )
+shape = SubResource( 6 )

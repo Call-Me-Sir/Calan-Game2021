@@ -52,7 +52,7 @@ func _process(delta):
 		bounces += 1
 		if bounces >= max_bounces:
 			break
-		$RayCast2D/SensorCheck/EndParticles.rotation = normal.angle()
+	$RayCast2D/SensorCheck/EndParticles.rotation = ray.get_collision_normal().angle()
 	if prev != null:
 		prev.collision_mask = 3
 		prev.collision_layer = 3

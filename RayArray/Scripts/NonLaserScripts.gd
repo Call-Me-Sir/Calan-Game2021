@@ -11,7 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if get_parent().name == "Playerspaceshipkinematic":
+	if get_parent().name == "Playerspaceshipkinematic" or Input.is_mouse_button_pressed(BUTTON_LEFT):
 		rotation_dir = 0
 		var rotation_speed = 1
 		if Input.is_action_pressed("Contraptionleft"):
@@ -29,15 +29,22 @@ func _process(delta):
 		rotation += rotation_dir * rotation_speed * delta
 
 func _on_Area2D_area_entered(area):
-	
-	pickupable = true
-	print(pickupable)
+	if area.name == "PickupArea":
+		pickupable = true
+		print(pickupable)
+	if area.name == "MouseArea":
+		mouse_in = true
+		print(mouse_in)
 
 
 
 func _on_Area2D_area_exited(area):
-	pickupable = false
-	print(pickupable)
+	if area.name == "PickupArea":
+		pickupable = false
+		print(pickupable)
+	if area.name == "MouseArea":
+		mouse_in = false
+		print(mouse_in)
 
 func _on_Mirror_mouse_entered():
 	mouse_in = true

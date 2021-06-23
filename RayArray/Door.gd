@@ -45,6 +45,7 @@ func _process(delta):
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Laser") and laserhitting == 0:
 		$Sensor/Polygon2D.color = Color(1,0,0)
+		#$Line2D.color = Color(1,0,0)
 		laserhitting +=1
 		print(laserhitting)
 		if open == false:
@@ -59,6 +60,7 @@ func _on_Area2D_area_entered(area):
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("Laser") and laserhitting == 1:
 		$Sensor/Polygon2D.color = Color(1,1,1)
+		#$Line2D.color = Color(1,1,1)
 		laserhitting -= 1
 		print(laserhitting)
 		if open == true:

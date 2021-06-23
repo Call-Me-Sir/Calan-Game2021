@@ -10,6 +10,7 @@ extents = Vector2( 4.93334, 7.17012 )
 "Mirror",
 "Pickupable",
 ]]
+input_pickable = true
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 2 )
@@ -31,9 +32,5 @@ position = Vector2( -1, 0 )
 scale = Vector2( 0.608107, -2.09202 )
 shape = SubResource( 1 )
 
-[connection signal="mouse_entered" from="." to="." method="_on_Mirror_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_Mirror_mouse_exited"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

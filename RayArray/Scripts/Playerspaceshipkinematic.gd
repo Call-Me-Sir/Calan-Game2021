@@ -17,6 +17,7 @@ onready var _animated_sprite2 = $SpaceshipThrust2
 onready var _animated_sprite3 = $SpaceshipThrust3
 onready var _animated_sprite4 = $SpaceshipThrust4
 
+var mouse_object = null
 var world_optic = null
 var lasers = 1
 
@@ -29,7 +30,10 @@ func reparent_object(object):
 	var local_objects = $PickupArea.get_overlapping_bodies()
 	if object in local_objects:
 		if object.is_in_group("Pickupable") and object.pickupable == true:
-			var new = object.duplicate
+			var new = object.duplicate()
+			new.position.x = 0
+			new.position.y = 0
+			new.name = "Mirror"
 			add_child(new)
 			object.queue_free()
 
@@ -53,8 +57,7 @@ func deploy_check():
 			remove_child($Mirror)
 		#Put more optical contraptions here
 		else:
-			pass
-			#reparent_object()
+			reparent_object(mouse_object)
 		
 
 func thrust_animation():
@@ -128,8 +131,17 @@ func _ready():
 
 
 func _on_PickupArea_area_entered(area):
-	print(area.name) # Replace with function body.
+	print(area.get_parent()) # Replace with function body.
 
 
 func _on_PickupArea_area_exited(area):
 	pass # Replace with function body.
+
+
+func _on_MouseArea_area_entered(area):
+	mouse_object = area.get_parent() # Replace with function body.
+
+
+
+func _on_MouseArea_area_exited(area):
+	mouse_object = null # Replace with function body.
