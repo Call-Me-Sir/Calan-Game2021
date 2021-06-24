@@ -5,6 +5,8 @@ extends StaticBody2D
 onready var ray = $RayCast2D
 onready var line = $Line2D
 
+var pickupable = false
+var mouse_in = false
 var max_bounces = 10
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	line.clear_points()
 	line.add_point(Vector2.ZERO)
 	ray.global_position = line.global_position
@@ -63,3 +65,20 @@ func _process(delta):
 #		if ray.get_collider().name == "Sensor":
 #			ray.get_collider().emit_signal("RayHit")
 			
+
+
+func _on_Area2D_area_entered(area):
+	if area.name == "PickupArea":
+		pickupable = true
+		print(pickupable)
+	if area.name == "MouseArea":
+		mouse_in = true
+		print(mouse_in)
+
+func _on_Area2D_area_exited(area):
+	if area.name == "PickupArea":
+		pickupable = false
+		print(pickupable)
+	if area.name == "MouseArea":
+		mouse_in = false
+		print(mouse_in)

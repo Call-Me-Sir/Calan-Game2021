@@ -17,13 +17,14 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
-	pass
-	#if open == true:
-	#	pass
-	#elif open == false:
-	#	$AnimationPlayer.play_backwards("DoorOpen")
+	
+	if open == false and laserhitting >= 1:
+		$Sensor/Polygon2D.color = Color(1,0,0)
+		$AnimationPlayer.play("DoorOpen")
+		open = true
+		print("This")
 
 
 #func _on_Sensor_RayHit():

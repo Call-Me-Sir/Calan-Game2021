@@ -33,26 +33,29 @@ func reparent_object(object):
 			var new = object.duplicate()
 			new.position.x = 0
 			new.position.y = 0
-			new.name = "Mirror"
+			if object.is_in_group("Mirror"):
+				new.name = "Mirror"
+			elif object.is_in_group("Laser"):
+				new.name = "RedLaser"
 			add_child(new)
 			object.queue_free()
 
 
 func deploy_check():
 	if Input.is_action_just_pressed("Deploy&Pickup"):
-		if get_node("RedLaser"):
+		if has_node("RedLaser"):
 			world_optic = red_laser.instance()
 			world_optic.global_position = $RedLaser.global_position
 			world_optic.global_rotation = get_local_mouse_position().angle()
-			world_optic.name = "RedLaser"
+			
 			get_parent().add_child(world_optic)
 			remove_child($RedLaser)
 			
-		elif get_node("Mirror"):
+		elif has_node("Mirror"):
 			world_optic = mirror.instance()
 			world_optic.global_position = $Mirror.global_position
 			world_optic.global_rotation = $Mirror.global_rotation
-			world_optic.name = "Mirror"
+			world_optic.add_to_group("Mirror")
 			get_parent().add_child(world_optic)
 			remove_child($Mirror)
 		#Put more optical contraptions here
@@ -97,7 +100,8 @@ func thrust_animation():
 	elif Input.is_action_just_released("ui_down"):
 		_animated_sprite4.play("Thrust Up", true)
 
-func _process(_delta):
+func _physics_process(_delta):
+	
 	var input_velocity = Vector2.ZERO
 	# Check input for "desired" velocity
 	input_velocity.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
@@ -120,13 +124,17 @@ func _process(_delta):
 		velocity = velocity.linear_interpolate(Vector2.ZERO, friction)
 	velocity = move_and_slide(velocity)
 	deploy_check()
-	#Call reparent object
+
 
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+#func _ready():
+#	if has_node("RedLaser"):
+#		$RedLaser.add_collision_exception_with()
+#	elif has_node("Mirror"):
+#		$Mirror
+
 
 
 
@@ -134,14 +142,16 @@ func _on_PickupArea_area_entered(area):
 	print(area.get_parent()) # Replace with function body.
 
 
-func _on_PickupArea_area_exited(area):
+func _on_PickupArea_area_exited(_area):
 	pass # Replace with function body.
 
 
 func _on_MouseArea_area_entered(area):
-	mouse_object = area.get_parent() # Replace with function body.
+	mouse_object = area.get_parent()
+	print(mouse_object) # Replace with function body.
 
 
 
-func _on_MouseArea_area_exited(area):
-	mouse_object = null # Replace with function body.
+func _on_MouseArea_area_exited(_area):
+	mouse_object = null
+	print(mouse_object) # Replace with function body.
