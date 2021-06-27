@@ -65,6 +65,7 @@ process_material = SubResource( 4 )
 position = Vector2( -1, 0 )
 rotation = 1.57079
 shape = SubResource( 5 )
+disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 

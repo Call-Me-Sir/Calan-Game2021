@@ -26,10 +26,16 @@ func set_speed(s,f):
 	friction = f
 
 #Mr Smith version of deploycheck
-func reparent_object(object):
+func reparent_object():
 	var local_objects = $PickupArea.get_overlapping_bodies()
-	if object in local_objects:
-		if object.is_in_group("Pickupable") and object.pickupable == true:
+	local_objects.erase(self)
+	print(local_objects)
+	var closest_object = local_objects[0]
+	for close_object in local_objects:
+		if close_object.global_position.distance_to(global_position) < closest_object.global_position.distance_to(global_position):
+			closest_object = close_object
+		var object = closest_object.get_parent()
+		if object.is_in_group("Pickupable"):
 			var new = object.duplicate()
 			new.position.x = 0
 			new.position.y = 0
@@ -60,7 +66,7 @@ func deploy_check():
 			remove_child($Mirror)
 		#Put more optical contraptions here
 		else:
-			reparent_object(mouse_object)
+			reparent_object()
 		
 
 func thrust_animation():
@@ -147,11 +153,13 @@ func _on_PickupArea_area_exited(_area):
 
 
 func _on_MouseArea_area_entered(area):
-	mouse_object = area.get_parent()
-	print(mouse_object) # Replace with function body.
+	pass
+	#mouse_object = area.get_parent()
+	#print(mouse_object) # Replace with function body.
 
 
 
 func _on_MouseArea_area_exited(_area):
-	mouse_object = null
-	print(mouse_object) # Replace with function body.
+	pass
+	#mouse_object = null
+	#print(mouse_object) # Replace with function body.

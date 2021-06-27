@@ -21,8 +21,12 @@ func _process(_delta):
 	if get_parent().name == "Playerspaceshipkinematic":# or Input.is_mouse_button_pressed(BUTTON_LEFT):
 		$RedLaserSprite.rotation = get_local_mouse_position().angle()
 		ray.cast_to = (get_global_mouse_position()-line.global_position).normalized()* 1000
+		$CollisionShape2D.disabled = true
+	#elif $Area2D.get_overlapping_areas().get_parent().name == "Playerspaceshipkinematic":
+	#	$CollisionShape2D.disabled = true
 	else:
 		ray.cast_to = Vector2(1000,0).rotated($RedLaserSprite.rotation)
+		#$CollisionShape2D.disabled = false
 	var prev = null
 	var bounces = 0
 	ray.force_raycast_update()

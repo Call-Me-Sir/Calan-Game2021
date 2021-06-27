@@ -24,9 +24,14 @@ animations = [ {
 "name": "Small Right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": false,
-"name": "Full Up",
+"name": "Full Right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": false,
+"name": "Small Up",
 "speed": 5.0
 }, {
 "frames": [ null, ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
@@ -34,20 +39,15 @@ animations = [ {
 "name": "Thrust Right",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 11 ) ],
-"loop": false,
-"name": "Small Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": false,
-"name": "Full Right",
-"speed": 5.0
-}, {
 "frames": [ null, ExtResource( 4 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "Thrust Up",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": false,
+"name": "Full Up",
+"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -57,8 +57,8 @@ radius = 32.0
 radius = 1.0
 
 [node name="Playerspaceshipkinematic" type="KinematicBody2D"]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 4
+collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="SpaceshipSprite" type="Sprite" parent="."]
@@ -66,7 +66,6 @@ texture = ExtResource( 1 )
 
 [node name="Spaceship Edges" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -25, -17, -25, -11, -19, -11, -19, 11, -25, 11, -25, 17, -19, 17, -19, 19, -17, 19, -17, 25, -11, 25, -11, 19, 11, 19, 11, 25, 17, 25, 17, 19, 19, 19, 19, 17, 25, 17, 25, 11, 19, 11, 19, -11, 25, -11, 25, -17, 19, -17, 19, -19, 17, -19, 17, -25, 11, -25, 11, -19, -11, -19, -11, -25, -17, -25, -17, -19, -19, -19, -19, -17 )
-disabled = true
 one_way_collision_margin = 0.0
 
 [node name="SpaceshipThrust" type="AnimatedSprite" parent="."]
