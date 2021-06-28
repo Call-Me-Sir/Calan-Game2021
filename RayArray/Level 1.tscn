@@ -381,3 +381,4 @@ position = Vector2( 808, 152 )
 [editable path="Mirror3"]
 [editable path="Door2"]
 [editable path="Door"]
+[editable path="NewRedLaser"]

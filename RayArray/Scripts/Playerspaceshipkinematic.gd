@@ -27,24 +27,26 @@ func set_speed(s,f):
 
 #Mr Smith version of deploycheck
 func reparent_object():
-	var local_objects = $PickupArea.get_overlapping_bodies()
-	local_objects.erase(self)
-	print(local_objects)
+	var local_objects = $PickupArea.get_overlapping_areas()
+	#local_objects.erase(self)
+	if local_objects.empty():
+		return
 	var closest_object = local_objects[0]
 	for close_object in local_objects:
-		if close_object.global_position.distance_to(global_position) < closest_object.global_position.distance_to(global_position):
+		if global_position.distance_to(close_object.global_position) < global_position.distance_to(closest_object.global_position):
 			closest_object = close_object
-		var object = closest_object.get_parent()
-		if object.is_in_group("Pickupable"):
-			var new = object.duplicate()
-			new.position.x = 0
-			new.position.y = 0
-			if object.is_in_group("Mirror"):
-				new.name = "Mirror"
-			elif object.is_in_group("Laser"):
-				new.name = "RedLaser"
-			add_child(new)
-			object.queue_free()
+	var object = closest_object.get_parent()
+	print(object)
+	if object.is_in_group("Pickupable"):
+		var new = object.duplicate()
+		new.position.x = 0
+		new.position.y = 0
+		if object.is_in_group("Mirror"):
+			new.name = "Mirror"
+		elif object.is_in_group("Laser"):
+			new.name = "RedLaser"
+		add_child(new)
+		object.queue_free()
 
 
 func deploy_check():
@@ -56,7 +58,7 @@ func deploy_check():
 			
 			get_parent().add_child(world_optic)
 			remove_child($RedLaser)
-			
+			return
 		elif has_node("Mirror"):
 			world_optic = mirror.instance()
 			world_optic.global_position = $Mirror.global_position
@@ -64,6 +66,7 @@ func deploy_check():
 			world_optic.add_to_group("Mirror")
 			get_parent().add_child(world_optic)
 			remove_child($Mirror)
+			return
 		#Put more optical contraptions here
 		else:
 			reparent_object()
@@ -152,6 +155,7 @@ func _on_PickupArea_area_exited(_area):
 	pass # Replace with function body.
 
 
+# warning-ignore:unused_argument
 func _on_MouseArea_area_entered(area):
 	pass
 	#mouse_object = area.get_parent()
