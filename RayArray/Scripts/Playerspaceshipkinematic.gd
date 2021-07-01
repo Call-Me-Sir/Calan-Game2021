@@ -16,8 +16,11 @@ onready var _animated_sprite = $SpaceshipThrust
 onready var _animated_sprite2 = $SpaceshipThrust2
 onready var _animated_sprite3 = $SpaceshipThrust3
 onready var _animated_sprite4 = $SpaceshipThrust4
+onready var pickup_area = $PickupArea
 
 var mouse_object = null
+var local_objects
+var closest_object
 var world_optic = null
 var lasers = 1
 
@@ -27,11 +30,11 @@ func set_speed(s,f):
 
 #Mr Smith version of deploycheck
 func reparent_object():
-	var local_objects = $PickupArea.get_overlapping_areas()
+	local_objects = pickup_area.get_overlapping_areas()
 	#local_objects.erase(self)
 	if local_objects.empty():
 		return
-	var closest_object = local_objects[0]
+	closest_object = local_objects[0]
 	for close_object in local_objects:
 		if global_position.distance_to(close_object.global_position) < global_position.distance_to(closest_object.global_position):
 			closest_object = close_object
@@ -71,7 +74,21 @@ func deploy_check():
 		else:
 			reparent_object()
 		
+func close_glow():
+	local_objects = $PickupArea.get_overlapping_areas()
+	if local_objects.empty():
+		return
+	closest_object = local_objects[0]
+	for close_object in local_objects:
+		if global_position.distance_to(close_object.global_position) < global_position.distance_to(closest_object.global_position):
+			closest_object = close_object
+	var object = closest_object.get_parent()
+	
+	#object.Texture.size.x = object.Texture.size.x * 1.1
+	#object.Texture.size.y = object.Texture.size.y * 1.1
+	#closest_object.get_parent().Light.show()
 
+	
 func thrust_animation():
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("slowdown"):
 		_animated_sprite.play("Small Right")
@@ -133,6 +150,7 @@ func _physics_process(_delta):
 		velocity = velocity.linear_interpolate(Vector2.ZERO, friction)
 	velocity = move_and_slide(velocity)
 	deploy_check()
+	#close_glow()
 
 
 
