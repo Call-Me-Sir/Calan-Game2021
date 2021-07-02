@@ -17,6 +17,7 @@ onready var _animated_sprite2 = $SpaceshipThrust2
 onready var _animated_sprite3 = $SpaceshipThrust3
 onready var _animated_sprite4 = $SpaceshipThrust4
 onready var pickup_area = $PickupArea
+onready var control_area = $ControlArea
 
 var mouse_object = null
 var local_objects
@@ -31,7 +32,7 @@ func set_speed(s,f):
 #Mr Smith version of deploycheck
 func reparent_object():
 	local_objects = pickup_area.get_overlapping_areas()
-	#local_objects.erase(self)
+	local_objects.erase(control_area)
 	if local_objects.empty():
 		return
 	closest_object = local_objects[0]
