@@ -1,59 +1,85 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://InLevelUI.gd" type="Script" id=1]
-[ext_resource path="res://Imported resources/Player space ship (WIP)-2.png" type="Texture" id=2]
-[ext_resource path="res://Imported resources/Player space ship (WIP)-2.png.png" type="Texture" id=3]
+[ext_resource path="res://Imported resources/Player space ship (WIP)-1.png.png" type="Texture" id=2]
+[ext_resource path="res://Imported resources/New Piskel-1.png (3).png" type="Texture" id=3]
+[ext_resource path="res://Imported resources/Red Laser V1-1.png (4).png" type="Texture" id=4]
 
 [node name="InLevelUI" type="MarginContainer"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -212.0
-custom_constants/margin_right = 40
+margin_top = -168.0
+custom_constants/margin_right = 60
 custom_constants/margin_top = 40
-custom_constants/margin_left = 40
-custom_constants/margin_bottom = 40
+custom_constants/margin_left = 60
+custom_constants/margin_bottom = 60
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 40.0
-margin_top = 99.0
-margin_right = 984.0
-margin_bottom = 113.0
+margin_left = 60.0
+margin_top = 67.0
+margin_right = 964.0
+margin_bottom = 81.0
 
 [node name="ShipOrClose" type="VBoxContainer" parent="."]
-margin_left = 40.0
+margin_left = 60.0
 margin_top = 40.0
-margin_right = 984.0
-margin_bottom = 172.0
+margin_right = 964.0
+margin_bottom = 108.0
 
 [node name="ItemsShip" type="HBoxContainer" parent="ShipOrClose"]
-margin_right = 944.0
-margin_bottom = 64.0
+margin_right = 904.0
+margin_bottom = 32.0
 
-[node name="TextureRect" type="TextureRect" parent="ShipOrClose/ItemsShip"]
-margin_right = 64.0
-margin_bottom = 64.0
+[node name="ShipIndicator" type="MarginContainer" parent="ShipOrClose/ItemsShip"]
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="ShipTexture" type="TextureRect" parent="ShipOrClose/ItemsShip/ShipIndicator"]
+margin_right = 32.0
+margin_bottom = 32.0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="ShipOrClose/ItemsShip"]
-margin_left = 68.0
-margin_top = 25.0
-margin_right = 68.0
-margin_bottom = 39.0
+[node name="VSeparator" type="VSeparator" parent="ShipOrClose/ItemsShip"]
+margin_left = 36.0
+margin_right = 40.0
+margin_bottom = 32.0
+
+[node name="Item1" type="MarginContainer" parent="ShipOrClose/ItemsShip"]
+margin_left = 44.0
+margin_right = 74.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="ShipOrClose/ItemsShip/Item1"]
+margin_right = 30.0
+margin_bottom = 32.0
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="ShipOrClose/ItemsShip/Item1"]
+margin_top = 9.0
+margin_right = 30.0
+margin_bottom = 23.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ItemsClose" type="HBoxContainer" parent="ShipOrClose"]
-margin_top = 68.0
-margin_right = 944.0
-margin_bottom = 132.0
+margin_top = 36.0
+margin_right = 904.0
+margin_bottom = 68.0
 
-[node name="TextureRect" type="TextureRect" parent="ShipOrClose/ItemsClose"]
-margin_right = 64.0
-margin_bottom = 64.0
+[node name="MarginContainer" type="MarginContainer" parent="ShipOrClose/ItemsClose"]
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="ShipOrClose/ItemsClose/MarginContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
 texture = ExtResource( 3 )

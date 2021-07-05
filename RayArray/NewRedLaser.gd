@@ -4,29 +4,47 @@ extends StaticBody2D
 # Declare member variables here. Examples:
 onready var ray = $RayCast2D
 onready var line = $Line2D
-
+onready var texture = $Texture
 var pickupable = false
 var mouse_in = false
 var max_bounces = 10
+var in_control_area
+var rotation_dir = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	line.clear_points()
 	line.add_point(Vector2.ZERO)
 	ray.global_position = line.global_position
 	if get_parent().name == "Playerspaceshipkinematic":# or Input.is_mouse_button_pressed(BUTTON_LEFT):
-		$Texture.rotation = get_local_mouse_position().angle()
-		ray.cast_to = Vector2(1000,0).rotated($Texture.rotation)
+		texture.rotation = get_local_mouse_position().angle()
+		ray.cast_to = Vector2(1000,0).rotated(texture.rotation)
 		#ray.cast_to = (get_global_mouse_position()-line.global_position).normalized()* 1000
 		$CollisionShape2D.disabled = true
-	#elif $Area2D.get_overlapping_areas().get_parent().name == "Playerspaceshipkinematic":
+	elif in_control_area == true:
+		rotation_dir = 0
+		var rotation_speed = 1
+		if Input.is_action_pressed("Contraptionleft"):
+			rotation_dir -= 1
+		if Input.is_action_pressed("Contraptionright"):
+			rotation_dir += 1
+		if Input.is_action_pressed("speedup"):
+			rotation_speed = 3
+		elif Input.is_action_just_released("speedup"):
+			rotation_speed = 1
+		elif Input.is_action_pressed("slowdown"):
+			rotation_speed = 0.15
+		elif Input.is_action_just_released("slowdown"):
+			rotation_speed = 1
+		texture.rotation += rotation_dir * rotation_speed * delta
+		ray.cast_to = Vector2(1000,0).rotated(texture.rotation)
 	#	$CollisionShape2D.disabled = true
 	else:
-		ray.cast_to = Vector2(1000,0).rotated($Texture.rotation)
+		ray.cast_to = Vector2(1000,0).rotated(texture.rotation)
 		#$CollisionShape2D.disabled = false
 	var prev = null
 	var bounces = 0
@@ -79,6 +97,8 @@ func _on_Area2D_area_entered(area):
 	if area.name == "MouseArea":
 		mouse_in = true
 		print(mouse_in)
+	if area.name == "ControlArea":
+		in_control_area = true
 
 func _on_Area2D_area_exited(area):
 	if area.name == "PickupArea":
@@ -87,3 +107,5 @@ func _on_Area2D_area_exited(area):
 	if area.name == "MouseArea":
 		mouse_in = false
 		print(mouse_in)
+	if area.name == "ControlArea":
+		in_control_area = false
