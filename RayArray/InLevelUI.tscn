@@ -52,20 +52,69 @@ margin_left = 36.0
 margin_right = 40.0
 margin_bottom = 32.0
 
-[node name="Item1" type="MarginContainer" parent="ShipOrClose/ItemsShip"]
+[node name="ShipItem1" type="MarginContainer" parent="ShipOrClose/ItemsShip"]
 margin_left = 44.0
 margin_right = 74.0
 margin_bottom = 32.0
 
-[node name="TextureRect" type="TextureRect" parent="ShipOrClose/ItemsShip/Item1"]
+[node name="Texture" type="TextureRect" parent="ShipOrClose/ItemsShip/ShipItem1"]
 margin_right = 30.0
 margin_bottom = 32.0
 texture = ExtResource( 4 )
 
-[node name="Label" type="Label" parent="ShipOrClose/ItemsShip/Item1"]
+[node name="Label" type="Label" parent="ShipOrClose/ItemsShip/ShipItem1"]
 margin_top = 9.0
 margin_right = 30.0
 margin_bottom = 23.0
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator2" type="VSeparator" parent="ShipOrClose/ItemsShip"]
+margin_left = 78.0
+margin_right = 82.0
+margin_bottom = 32.0
+
+[node name="ShipItem2" type="MarginContainer" parent="ShipOrClose/ItemsShip"]
+margin_left = 86.0
+margin_right = 116.0
+margin_bottom = 32.0
+
+[node name="Texture" type="TextureRect" parent="ShipOrClose/ItemsShip/ShipItem2"]
+margin_right = 30.0
+margin_bottom = 32.0
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="ShipOrClose/ItemsShip/ShipItem2"]
+margin_top = 9.0
+margin_right = 30.0
+margin_bottom = 23.0
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator3" type="VSeparator" parent="ShipOrClose/ItemsShip"]
+margin_left = 120.0
+margin_right = 124.0
+margin_bottom = 32.0
+
+[node name="ShipItem3" type="MarginContainer" parent="ShipOrClose/ItemsShip"]
+margin_left = 128.0
+margin_right = 158.0
+margin_bottom = 32.0
+
+[node name="Texture" type="TextureRect" parent="ShipOrClose/ItemsShip/ShipItem3"]
+margin_right = 30.0
+margin_bottom = 32.0
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="ShipOrClose/ItemsShip/ShipItem3"]
+margin_top = 9.0
+margin_right = 30.0
+margin_bottom = 23.0
+text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
 }

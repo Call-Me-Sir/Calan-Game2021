@@ -25,6 +25,11 @@ animations = [ {
 "name": "Full Up",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 11 ) ],
+"loop": false,
+"name": "Small Up",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": false,
 "name": "Full Right",
@@ -44,11 +49,6 @@ animations = [ {
 "loop": false,
 "name": "Thrust Right",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": false,
-"name": "Small Up",
-"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]

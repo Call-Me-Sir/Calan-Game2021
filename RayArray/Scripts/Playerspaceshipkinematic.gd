@@ -18,6 +18,8 @@ onready var _animated_sprite3 = $SpaceshipThrust3
 onready var _animated_sprite4 = $SpaceshipThrust4
 onready var pickup_area = $PickupArea
 onready var control_area = $ControlArea
+#onready var Ship_Red_Laser = $RedLaser
+#onready var Ship_Mirror = $Mirror
 
 var mouse_object = null
 var local_objects
@@ -159,9 +161,9 @@ func _physics_process(_delta):
 # Called when the node enters the scene tree for the first time.
 #func _ready():
 #	if has_node("RedLaser"):
-#		$RedLaser.add_collision_exception_with()
+#		Ship_Red_Laser.add_collision_exception_with()
 #	elif has_node("Mirror"):
-#		$Mirror
+#		Ship_Mirror
 
 
 
