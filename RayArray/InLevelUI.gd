@@ -51,6 +51,7 @@ func _process(delta):
 		PlayerOptics[Selected] = "Empty"
 		SelectedTexture.texture = Emptytexture	
 	if Input.is_action_just_pressed("SelectLeft"):
+		print(Selected)
 		if PlayerShip.has_node("RedLaser"):
 			PlayerShip.get_node("RedLaser").queue_free()
 		elif PlayerShip.has_node("Mirror"):
@@ -68,6 +69,7 @@ func _process(delta):
 		elif PlayerOptics[Selected] == "Empty":
 			pass
 	elif Input.is_action_just_pressed("SelectRight"):
+		print(Selected)
 		if PlayerShip.has_node("RedLaser"):
 			PlayerShip.get_node("RedLaser").queue_free()
 		elif PlayerShip.has_node("Mirror"):
