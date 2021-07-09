@@ -53,7 +53,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("SelectLeft"):
 		if PlayerShip.has_node("RedLaser"):
 			PlayerShip.get_node("RedLaser").queue_free()
-		Selected -= 1
+		elif PlayerShip.has_node("Mirror"):
+			PlayerShip.get_node("Mirror").queue_free()
+		if Selected >=1:
+			Selected -= 1
 		if PlayerOptics[Selected] == "RedLaser":
 			var r = Red_laser.instance()
 			r.position.x = 0
@@ -65,7 +68,22 @@ func _process(delta):
 		elif PlayerOptics[Selected] == "Empty":
 			pass
 	elif Input.is_action_just_pressed("SelectRight"):
-		Selected += 1
+		if PlayerShip.has_node("RedLaser"):
+			PlayerShip.get_node("RedLaser").queue_free()
+		elif PlayerShip.has_node("Mirror"):
+			PlayerShip.get_node("Mirror").queue_free()
+		if Selected <=1:
+			Selected += 1
+		if PlayerOptics[Selected] == "RedLaser":
+			var r = Red_laser.instance()
+			r.position.x = 0
+			r.position.y = 0
+			r.name = "RedLaser"
+			PlayerShip.add_child(r)
+		elif PlayerOptics[Selected] == "Mirror":
+			PlayerShip.add_child(Mirror)
+		elif PlayerOptics[Selected] == "Empty":
+			pass
 	Selected = clamp(Selected,0,2)
 	SelectedTexture = ShipTextures[Selected]
 
