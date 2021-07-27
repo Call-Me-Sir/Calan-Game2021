@@ -57,6 +57,12 @@ margin_left = 44.0
 margin_right = 74.0
 margin_bottom = 32.0
 
+[node name="ColorRect" type="ColorRect" parent="ShipOrClose/ItemsShip/ShipItem1"]
+margin_right = 30.0
+margin_bottom = 32.0
+size_flags_stretch_ratio = 0.0
+color = Color( 0, 0.337255, 0.858824, 0.462745 )
+
 [node name="Texture" type="TextureRect" parent="ShipOrClose/ItemsShip/ShipItem1"]
 margin_right = 30.0
 margin_bottom = 32.0
@@ -81,6 +87,11 @@ margin_left = 86.0
 margin_right = 116.0
 margin_bottom = 32.0
 
+[node name="ColorRect" type="ColorRect" parent="ShipOrClose/ItemsShip/ShipItem2"]
+margin_right = 30.0
+margin_bottom = 32.0
+color = Color( 0, 0.337255, 0.858824, 0.462745 )
+
 [node name="Texture" type="TextureRect" parent="ShipOrClose/ItemsShip/ShipItem2"]
 margin_right = 30.0
 margin_bottom = 32.0
@@ -104,6 +115,11 @@ margin_bottom = 32.0
 margin_left = 128.0
 margin_right = 158.0
 margin_bottom = 32.0
+
+[node name="ColorRect" type="ColorRect" parent="ShipOrClose/ItemsShip/ShipItem3"]
+margin_right = 30.0
+margin_bottom = 32.0
+color = Color( 0, 0.337255, 0.858824, 0.462745 )
 
 [node name="Texture" type="TextureRect" parent="ShipOrClose/ItemsShip/ShipItem3"]
 margin_right = 30.0

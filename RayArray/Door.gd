@@ -53,9 +53,10 @@ func _on_Area2D_area_entered(area):
 			$AnimationPlayer.play("DoorOpen")
 			open = true
 		print("Hit!") # Replace with function body.
-	else:
+	elif area.is_in_group("Laser") and laserhitting != 0:
 		laserhitting += 1
 		print(laserhitting)
+	
 
 
 func _on_Area2D_area_exited(area):
@@ -68,6 +69,6 @@ func _on_Area2D_area_exited(area):
 			$AnimationPlayer.play_backwards("DoorOpen")
 			open = false
 			print("Closing")
-	else:
+	elif area.is_in_group("Laser") and laserhitting > 1:
 		laserhitting -=1
 		print(laserhitting)
