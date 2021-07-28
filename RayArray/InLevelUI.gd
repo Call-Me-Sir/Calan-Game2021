@@ -81,6 +81,7 @@ func _process(delta):
 			var m = Mirror.instance()
 			m.position.x = 0
 			m.position.y = 0
+			m.name = "Mirror"
 			PlayerShip.add_child(m)
 		elif PlayerOptics[Selected] == "Empty":
 			pass
@@ -106,6 +107,7 @@ func _process(delta):
 			var m = Mirror.instance()
 			m.position.x = 0
 			m.position.y = 0
+			m.name = "Mirror"
 			PlayerShip.add_child(m)
 		elif PlayerOptics[Selected] == "Empty":
 			pass
