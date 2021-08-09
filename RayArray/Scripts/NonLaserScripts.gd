@@ -4,6 +4,7 @@ var pickupable = false
 var rotation_dir = 0
 var mouse_in = false
 var in_control_area
+var scaled = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -11,7 +12,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if get_parent().name == "Playerspaceshipkinematic" or Input.is_mouse_button_pressed(BUTTON_LEFT) or in_control_area == true:
+	if get_parent().name == "Playerspaceshipkinematic" or Input.is_mouse_button_pressed(BUTTON_LEFT) and in_control_area == true:
 		rotation_dir = 0
 		var rotation_speed = 1
 		if Input.is_action_pressed("Contraptionleft"):

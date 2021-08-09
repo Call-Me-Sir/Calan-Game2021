@@ -18,6 +18,8 @@ onready var _animated_sprite3 = $SpaceshipThrust3
 onready var _animated_sprite4 = $SpaceshipThrust4
 onready var pickup_area = $PickupArea
 onready var control_area = $ControlArea
+onready var mouse_area = $MouseArea
+onready var victory = get_parent().get_node("Victory")
 #onready var Ship_Red_Laser = $RedLaser
 #onready var Ship_Mirror = $Mirror
 
@@ -32,9 +34,11 @@ func set_speed(s,f):
 	friction = f
 
 #Mr Smith version of deploycheck
-func reparent_object():
+func reparent_object(yn):
 	local_objects = pickup_area.get_overlapping_areas()
 	local_objects.erase(control_area)
+	local_objects.erase(mouse_area)
+	local_objects.erase(victory)
 	if local_objects.empty():
 		return
 	closest_object = local_objects[0]
@@ -42,17 +46,22 @@ func reparent_object():
 		if global_position.distance_to(close_object.global_position) < global_position.distance_to(closest_object.global_position):
 			closest_object = close_object
 	var object = closest_object.get_parent()
-	print(object)
-	if object.is_in_group("Pickupable"):
-		var new = object.duplicate()
-		new.position.x = 0
-		new.position.y = 0
-		if object.is_in_group("Mirror"):
-			new.name = "Mirror"
-		elif object.is_in_group("Laser"):
-			new.name = "RedLaser"
-		add_child(new)
-		object.queue_free()
+	if yn == "yes":
+		if object.is_in_group("Pickupable"):
+			var new = object.duplicate()
+			new.position.x = 0
+			new.position.y = 0
+			if object.is_in_group("Mirror"):
+				new.name = "Mirror"
+			elif object.is_in_group("Laser"):
+				new.name = "RedLaser"
+			add_child(new)
+			object.queue_free()
+			
+	elif yn == "no": #and object.scaled == false:
+		object.scale = object.scale# * 1.005
+		#object.scaled == true
+
 
 
 func deploy_check():
@@ -75,7 +84,8 @@ func deploy_check():
 			return
 		#Put more optical contraptions here
 		else:
-			reparent_object()
+			reparent_object("yes")
+	reparent_object("no")
 		
 func close_glow():
 	local_objects = $PickupArea.get_overlapping_areas()

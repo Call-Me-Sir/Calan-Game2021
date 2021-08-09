@@ -10,6 +10,7 @@ var mouse_in = false
 var max_bounces = 10
 var in_control_area
 var rotation_dir = 0
+var scaled = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -25,7 +26,7 @@ func _process(delta):
 		ray.cast_to = Vector2(1000,0).rotated(texture.rotation)
 		#ray.cast_to = (get_global_mouse_position()-line.global_position).normalized()* 1000
 		$CollisionShape2D.disabled = true
-	elif in_control_area == true:
+	elif in_control_area == true and Input.is_mouse_button_pressed(BUTTON_LEFT):
 		rotation_dir = 0
 		var rotation_speed = 1
 		if Input.is_action_pressed("Contraptionleft"):

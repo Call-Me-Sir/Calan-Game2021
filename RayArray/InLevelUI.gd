@@ -15,6 +15,7 @@ onready var IndicatorItem1 = $ShipOrClose/ItemsShip/ShipItem1/ColorRect
 onready var IndicatorItem2 = $ShipOrClose/ItemsShip/ShipItem2/ColorRect
 onready var IndicatorItem3 = $ShipOrClose/ItemsShip/ShipItem3/ColorRect
 onready var PlayerShip = get_parent().get_node("Playerspaceshipkinematic")
+onready var Control_Area = PlayerShip.get_node("ControlArea")
 onready var Lasertexture = preload("res://Imported resources/Red Laser V1-1.png (4).png")
 onready var Mirrortexture = preload("res://.import/Game Mirror V1(Get back to this)-1.png.png-66b3108008df97c0f54193844ed7e215.stex")
 onready var Emptytexture = preload("res://.import/New Piskel-1.png (4).png-b40f08a0ef2110e008128c0b22a35f1f.stex")
@@ -38,14 +39,16 @@ func _ready():
 func Indicate():
 	ShowIndicator = Indicators[Selected]
 	ShowIndicator.show()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func Show():
 	if Input.is_action_just_pressed("UI ShowHide") and showing == true:
 		hide()
 		showing = false
 	elif Input.is_action_just_pressed("UI ShowHide") and showing == false:
 		show()
 		showing = true
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func Store_Thing_Data():
 	if PlayerShip.has_node("RedLaser"):
 		#CurrentOptic = "RedLaser"
 		PlayerOptics[Selected] = "RedLaser"
@@ -59,6 +62,13 @@ func _process(delta):
 		#CurrentOptic = "Mirror"
 		PlayerOptics[Selected] = "Empty"
 		SelectedTexture.texture = Emptytexture	
+
+func _process(delta):
+	Show()
+	if Input.is_action_just_pressed("Debug Key"):
+		for i in PlayerOptics:
+			print(i)
+	Store_Thing_Data()
 	if Input.is_action_just_pressed("SelectLeft"):
 		ShowIndicator.hide()
 		if Selected >=1:
@@ -91,6 +101,7 @@ func _process(delta):
 			Selected += 1
 		elif Selected == 2:
 			Indicate()
+			print("Too Right")
 			return
 		Indicate()
 		if PlayerShip.has_node("RedLaser"):
