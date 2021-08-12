@@ -5,12 +5,13 @@ extends StaticBody2D
 onready var ray = $RayCast2D
 onready var line = $Line2D
 onready var texture = $Texture
+onready var debugray = $DebugRay
 var pickupable = false
 var mouse_in = false
 var max_bounces = 10
 var in_control_area
 var rotation_dir = 0
-var scaled = false
+var has_scaled = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -63,6 +64,8 @@ func _process(delta):
 			break
 		
 		var normal = ray.get_collision_normal()
+		debugray.global_position = pt
+		debugray.cast_to = normal * 1000
 		if normal == Vector2.ZERO:
 			break
 		if prev != null:

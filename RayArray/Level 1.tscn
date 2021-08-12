@@ -30,6 +30,11 @@ position = Vector2( 944, 224 )
 rotation = -0.0798136
 collision_layer = 2
 
+[node name="Mirror4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 976, 304 )
+rotation = -0.0798136
+collision_layer = 2
+
 [node name="Tiles" type="Node2D" parent="."]
 position = Vector2( 0, 520 )
 
@@ -368,7 +373,9 @@ points = PoolVector2Array( 32, -16, 48, -16, 48, 24, -120, 24, -120, 8 )
 
 [node name="NewRedLaser" parent="." instance=ExtResource( 5 )]
 position = Vector2( 792, 176 )
-rotation = 0.82205
+
+[node name="Texture" parent="NewRedLaser" index="0"]
+rotation = 0.837758
 
 [node name="CollisionShape2D" parent="NewRedLaser/Area2D" index="0"]
 position = Vector2( 0, 0 )
@@ -382,6 +389,7 @@ position = Vector2( 912, 512 )
 
 [editable path="Playerspaceshipkinematic"]
 [editable path="Mirror3"]
+[editable path="Mirror4"]
 [editable path="Door"]
 [editable path="Door2"]
 [editable path="NewRedLaser"]

@@ -78,9 +78,9 @@ func _process(delta):
 			return
 		Indicate()
 		if PlayerShip.has_node("RedLaser"):
-			PlayerShip.get_node("RedLaser").queue_free()
+			PlayerShip.get_node("RedLaser").free()
 		elif PlayerShip.has_node("Mirror"):
-			PlayerShip.get_node("Mirror").queue_free()
+			PlayerShip.get_node("Mirror").free()
 		if PlayerOptics[Selected] == "RedLaser":
 			var r = Red_laser.instance()
 			r.position.x = 0
@@ -105,9 +105,9 @@ func _process(delta):
 			return
 		Indicate()
 		if PlayerShip.has_node("RedLaser"):
-			PlayerShip.get_node("RedLaser").queue_free()
+			PlayerShip.get_node("RedLaser").free()
 		elif PlayerShip.has_node("Mirror"):
-			PlayerShip.get_node("Mirror").queue_free()
+			PlayerShip.get_node("Mirror").free()
 		if PlayerOptics[Selected] == "RedLaser":
 			var r = Red_laser.instance()
 			r.position.x = 0

@@ -58,9 +58,9 @@ func reparent_object(yn):
 			add_child(new)
 			object.queue_free()
 			
-	elif yn == "no": #and object.scaled == false:
-		object.scale = object.scale# * 1.005
-		#object.scaled == true
+	elif yn == "no": #and object.has_scaled == false:
+		object.scale = object.scale# * 1.5
+		#object.has_scaled == true
 
 
 
@@ -69,9 +69,11 @@ func deploy_check():
 		if has_node("RedLaser"):
 			world_optic = red_laser.instance()
 			world_optic.global_position = $RedLaser.global_position
-			world_optic.global_rotation = get_local_mouse_position().angle()
+			
+			#world_optic.global_rotation = get_local_mouse_position().angle()
 			
 			get_parent().add_child(world_optic)
+			world_optic.texture.rotation = get_local_mouse_position().angle()
 			remove_child($RedLaser)
 			return
 		elif has_node("Mirror"):
@@ -140,7 +142,7 @@ func thrust_animation():
 		_animated_sprite4.play("Thrust Up", true)
 
 func _physics_process(_delta):
-	
+	print(self.get_child(0))
 	var input_velocity = Vector2.ZERO
 	# Check input for "desired" velocity
 	input_velocity.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
