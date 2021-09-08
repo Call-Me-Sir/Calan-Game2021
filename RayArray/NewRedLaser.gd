@@ -22,7 +22,7 @@ func _process(delta):
 	line.clear_points()
 	line.add_point(Vector2.ZERO)
 	ray.global_position = line.global_position
-	if get_parent().name == "Playerspaceshipkinematic":# or Input.is_mouse_button_pressed(BUTTON_LEFT):
+	if get_parent().name == "Playerspaceshipkinematic" or get_parent().name == "Main Menu":# or Input.is_mouse_button_pressed(BUTTON_LEFT):
 		texture.rotation = get_local_mouse_position().angle()
 		ray.cast_to = Vector2(1000,0).rotated(texture.rotation)
 		#ray.cast_to = (get_global_mouse_position()-line.global_position).normalized()* 1000
