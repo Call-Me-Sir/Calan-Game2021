@@ -89,6 +89,7 @@ func deploy_check():
 			reparent_object("yes")
 	reparent_object("no")
 		
+#Doesn't do anything right now
 func close_glow():
 	local_objects = $PickupArea.get_overlapping_areas()
 	if local_objects.empty():
@@ -142,7 +143,7 @@ func thrust_animation():
 		_animated_sprite4.play("Thrust Up", true)
 
 func _physics_process(_delta):
-	print(self.get_child(0))
+	#print(self.get_child(0))
 	var input_velocity = Vector2.ZERO
 	# Check input for "desired" velocity
 	input_velocity.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
@@ -181,7 +182,7 @@ func _physics_process(_delta):
 
 
 func _on_PickupArea_area_entered(area):
-	print(area.get_parent()) # Replace with function body.
+	print(area.get_parent()) #debugging
 
 
 func _on_PickupArea_area_exited(_area):

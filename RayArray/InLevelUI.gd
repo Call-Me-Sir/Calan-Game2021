@@ -29,16 +29,22 @@ var PlayerOptic3 = "Empty"
 var PlayerOptics = [PlayerOptic1,PlayerOptic2,PlayerOptic3]
 var CurrentOptic = PlayerOptics[Selected]
 # Called when the node enters the scene tree for the first time.
+
 func _ready():
 	Item2Texture.texture = Emptytexture
 	Item3Texture.texture = Emptytexture
+#You start with one a red laser
 	IndicatorItem2.hide()
 	IndicatorItem3.hide()
-	#$Label.text == get_parent() # Replace with function body.
+#This hides the select blue boxes, swapping items hides and unhides them
+
+	#$Label.text == get_parent().name # Replace with function body.
 
 func Indicate():
 	ShowIndicator = Indicators[Selected]
 	ShowIndicator.show()
+#Shows the blue box again after pressing z or x hides it as part of the process found in _process
+
 func Show():
 	if Input.is_action_just_pressed("UI ShowHide") and showing == true:
 		hide()
@@ -46,9 +52,10 @@ func Show():
 	elif Input.is_action_just_pressed("UI ShowHide") and showing == false:
 		show()
 		showing = true
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#Tab hides and unhides the whole UI
 
 func Store_Thing_Data():
+	#Stores object data for selected item selection and deselection
 	if PlayerShip.has_node("RedLaser"):
 		#CurrentOptic = "RedLaser"
 		PlayerOptics[Selected] = "RedLaser"
@@ -63,12 +70,14 @@ func Store_Thing_Data():
 		PlayerOptics[Selected] = "Empty"
 		SelectedTexture.texture = Emptytexture	
 
-func _process(delta):
+func _process(_delta):
 	Show()
 	if Input.is_action_just_pressed("Debug Key"):
 		for i in PlayerOptics:
 			print(i)
+	#Debugging
 	Store_Thing_Data()
+	#\/\/\/ Pressing z and x changes the selected item
 	if Input.is_action_just_pressed("SelectLeft"):
 		ShowIndicator.hide()
 		if Selected >=1:

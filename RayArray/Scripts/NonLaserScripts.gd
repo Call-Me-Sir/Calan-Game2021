@@ -12,6 +12,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#Rotate with q and e
 	if get_parent().name == "Playerspaceshipkinematic" or Input.is_mouse_button_pressed(BUTTON_LEFT) and in_control_area == true:
 		rotation_dir = 0
 		var rotation_speed = 1
@@ -19,6 +20,7 @@ func _process(delta):
 			rotation_dir -= 1
 		if Input.is_action_pressed("Contraptionright"):
 			rotation_dir += 1
+		#Shift to speed up rotation, ctrl to slow down
 		if Input.is_action_pressed("speedup"):
 			rotation_speed = 3
 		elif Input.is_action_just_released("speedup"):
@@ -30,6 +32,7 @@ func _process(delta):
 		rotation += rotation_dir * rotation_speed * delta
 
 func _on_Area2D_area_entered(area):
+	#Notes it the player is near obect
 	if area.name == "PickupArea":
 		pickupable = true
 		print(pickupable)
@@ -41,6 +44,7 @@ func _on_Area2D_area_entered(area):
 
 
 func _on_Area2D_area_exited(area):
+	#Notes if the player is no longer near the object
 	if area.name == "PickupArea":
 		pickupable = false
 		print(pickupable)
