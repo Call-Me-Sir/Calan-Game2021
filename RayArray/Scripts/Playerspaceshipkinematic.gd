@@ -29,12 +29,14 @@ var closest_object
 var world_optic = null
 var lasers = 1
 
+
 func set_speed(s,f):
 	speed = s
 	friction = f
 
-#Mr Smith version of deploycheck
+
 func reparent_object(yn):
+	#Use areas to create an array of objects that  can be picked up
 	local_objects = pickup_area.get_overlapping_areas()
 	local_objects.erase(control_area)
 	local_objects.erase(mouse_area)
@@ -42,10 +44,12 @@ func reparent_object(yn):
 	if local_objects.empty():
 		return
 	closest_object = local_objects[0]
+	#Find closest object as the object that will be picked up is the closest one
 	for close_object in local_objects:
 		if global_position.distance_to(close_object.global_position) < global_position.distance_to(closest_object.global_position):
 			closest_object = close_object
 	var object = closest_object.get_parent()
+	#If pressing pickup object button, pick up object
 	if yn == "yes":
 		if object.is_in_group("Pickupable"):
 			var new = object.duplicate()
@@ -57,7 +61,8 @@ func reparent_object(yn):
 				new.name = "RedLaser"
 			add_child(new)
 			object.queue_free()
-			
+	#If not pressed pickup button, scale object so player can see witch object will be picked up
+	#Does not work yet
 	elif yn == "no": #and object.has_scaled == false:
 		object.scale = object.scale# * 1.5
 		#object.has_scaled == true
@@ -65,8 +70,10 @@ func reparent_object(yn):
 
 
 func deploy_check():
+	#How the spaceship places and picks up items
 	if Input.is_action_just_pressed("Deploy&Pickup"):
 		if has_node("RedLaser"):
+			#Creates duplicate of current item, makes child of world at spaceship location and deletes item child
 			world_optic = red_laser.instance()
 			world_optic.global_position = $RedLaser.global_position
 			
@@ -77,6 +84,7 @@ func deploy_check():
 			remove_child($RedLaser)
 			return
 		elif has_node("Mirror"):
+			#Ditto for above. Need different code for different items
 			world_optic = mirror.instance()
 			world_optic.global_position = $Mirror.global_position
 			world_optic.global_rotation = $Mirror.global_rotation
@@ -106,12 +114,14 @@ func close_glow():
 
 	
 func thrust_animation():
+	#Controls what animations play when the player moves. Mostly self explanatory
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("slowdown"):
 		_animated_sprite.play("Small Right")
 	elif Input.is_action_pressed("ui_right"):
 		_animated_sprite.play("Thrust Right")
 		if Input.is_action_pressed("speedup"):
 			_animated_sprite.play("Full Right")
+	#Reverses thrust up animation to create thrust down effect upon key release
 	elif Input.is_action_just_released("ui_right"):
 		_animated_sprite.play("Thrust Right", true)
 	
@@ -148,6 +158,7 @@ func _physics_process(_delta):
 	# Check input for "desired" velocity
 	input_velocity.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
 	input_velocity.y = Input.get_action_strength("ui_down")-Input.get_action_strength("ui_up")
+	#Shift speeds up player, Ctrl slows down player
 	if Input.is_action_pressed("speedup"):
 		set_speed(400,0.2)
 	elif Input.is_action_just_released("speedup"):

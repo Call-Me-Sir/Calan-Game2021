@@ -19,7 +19,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
-	
+	#Opens door when laser hits
 	if open == false and laserhitting >= 1:
 		$Sensor/Polygon2D.color = Color(1,0,0)
 		$AnimationPlayer.play("DoorOpen")
@@ -44,6 +44,7 @@ func _process(_delta):
 
 
 func _on_Area2D_area_entered(area):
+	
 	if area.is_in_group("Laser") and laserhitting == 0:
 		$Sensor/Polygon2D.color = Color(1,0,0)
 		#$Line2D.color = Color(1,0,0)
