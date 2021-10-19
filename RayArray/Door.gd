@@ -1,6 +1,7 @@
 extends StaticBody2D
 var open = false
 onready var line = $Line2D
+onready var Sensor = $Sensor/Polygon2D
 signal laserfalse
 var laserhitting = 0
 # Declare member variables here. Examples:
@@ -21,7 +22,8 @@ func _process(_delta):
 	
 	#Opens door when laser hits
 	if open == false and laserhitting >= 1:
-		$Sensor/Polygon2D.color = Color(1,0,0)
+		Sensor.color = Color(1,0,0)
+		line.default_color = Color(1,1,1)
 		$AnimationPlayer.play("DoorOpen")
 		open = true
 		print("This")
@@ -46,8 +48,8 @@ func _process(_delta):
 func _on_Area2D_area_entered(area):
 	
 	if area.is_in_group("Laser") and laserhitting == 0:
-		$Sensor/Polygon2D.color = Color(1,0,0)
-		#$Line2D.color = Color(1,0,0)
+		Sensor.color = Color(1,0,0)
+		line.default_color = Color(1,0,0)
 		laserhitting +=1
 		print(laserhitting)
 		if open == false:
@@ -62,8 +64,8 @@ func _on_Area2D_area_entered(area):
 
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("Laser") and laserhitting == 1:
-		$Sensor/Polygon2D.color = Color(1,1,1)
-		#$Line2D.color = Color(1,1,1)
+		Sensor.color = Color(1,1,1)
+		line.default_color = Color(1,1,1)
 		laserhitting -= 1
 		print(laserhitting)
 		if open == true:

@@ -92,3 +92,4 @@ texture_normal = ExtResource( 4 )
 texture_hover = ExtResource( 6 )
 
 [connection signal="pressed" from="Container/VBoxContainer/MenuOptions/CenterLevelSelect/LevelSelect" to="." method="_on_LevelSelect_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/MenuOptions/CenterOptions/Button" to="." method="_on_Button_pressed"]
