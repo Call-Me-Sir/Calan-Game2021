@@ -46,10 +46,10 @@ func Indicate():
 #Shows the blue box again after pressing z or x hides it as part of the process found in _process
 
 func Show():
-	if Input.is_action_just_pressed("UI ShowHide") and showing == true:
+	if Input.is_action_just_pressed("UIShowHide") and showing == true:
 		hide()
 		showing = false
-	elif Input.is_action_just_pressed("UI ShowHide") and showing == false:
+	elif Input.is_action_just_pressed("UIShowHide") and showing == false:
 		show()
 		showing = true
 #Tab hides and unhides the whole UI

@@ -16,18 +16,18 @@ func _process(delta):
 	if get_parent().name == "Playerspaceshipkinematic" or Input.is_mouse_button_pressed(BUTTON_LEFT) and in_control_area == true:
 		rotation_dir = 0
 		var rotation_speed = 1
-		if Input.is_action_pressed("Contraptionleft"):
+		if Input.is_action_pressed("ItemLeft"):
 			rotation_dir -= 1
-		if Input.is_action_pressed("Contraptionright"):
+		if Input.is_action_pressed("ItemRight"):
 			rotation_dir += 1
 		#Shift to speed up rotation, ctrl to slow down
-		if Input.is_action_pressed("speedup"):
+		if Input.is_action_pressed("Speedup"):
 			rotation_speed = 3
-		elif Input.is_action_just_released("speedup"):
+		elif Input.is_action_just_released("Speedup"):
 			rotation_speed = 1
-		elif Input.is_action_pressed("slowdown"):
+		elif Input.is_action_pressed("Slowdown"):
 			rotation_speed = 0.15
-		elif Input.is_action_just_released("slowdown"):
+		elif Input.is_action_just_released("Slowdown"):
 			rotation_speed = 1
 		rotation += rotation_dir * rotation_speed * delta
 

@@ -71,7 +71,7 @@ func reparent_object(yn):
 
 func deploy_check():
 	#How the spaceship places and picks up items
-	if Input.is_action_just_pressed("Deploy&Pickup"):
+	if Input.is_action_just_pressed("DeployPickup"):
 		if has_node("RedLaser"):
 			#Creates duplicate of current item, makes child of world at spaceship location and deletes item child
 			world_optic = red_laser.instance()
@@ -112,42 +112,42 @@ func close_glow():
 	#object.Texture.size.y = object.Texture.size.y * 1.1
 	#closest_object.get_parent().Light.show()
 
-	
+	Input.is_action_just_pressed("Sp")
 func thrust_animation():
 	#Controls what animations play when the player moves. Mostly self explanatory
-	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("slowdown"):
+	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("Slowdown"):
 		_animated_sprite.play("Small Right")
 	elif Input.is_action_pressed("ui_right"):
 		_animated_sprite.play("Thrust Right")
-		if Input.is_action_pressed("speedup"):
+		if Input.is_action_pressed("Speedup"):
 			_animated_sprite.play("Full Right")
 	#Reverses thrust up animation to create thrust down effect upon key release
 	elif Input.is_action_just_released("ui_right"):
 		_animated_sprite.play("Thrust Right", true)
 	
-	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("slowdown"):
+	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("Slowdown"):
 		_animated_sprite2.play("Small Right")
 	elif Input.is_action_pressed("ui_left"):
 		_animated_sprite2.play("Thrust Right")
-		if Input.is_action_pressed("speedup"):
+		if Input.is_action_pressed("Speedup"):
 			_animated_sprite2.play("Full Right")
 	elif Input.is_action_just_released("ui_left"):
 		_animated_sprite2.play("Thrust Right", true)
 	
-	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("slowdown"):
+	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("Slowdown"):
 		_animated_sprite3.play("Small Up")
 	elif Input.is_action_pressed("ui_up"):
 		_animated_sprite3.play("Thrust Up")
-		if Input.is_action_pressed("speedup"):
+		if Input.is_action_pressed("Speedup"):
 			_animated_sprite3.play("Full Up")
 	elif Input.is_action_just_released("ui_up"):
 		_animated_sprite3.play("Thrust Up", true)
 		
-	if Input.is_action_pressed("ui_down") and Input.is_action_pressed("slowdown"):
+	if Input.is_action_pressed("ui_down") and Input.is_action_pressed("Slowdown"):
 		_animated_sprite4.play("Small Up")
 	elif Input.is_action_pressed("ui_down"):
 		_animated_sprite4.play("Thrust Up")
-		if Input.is_action_pressed("speedup"):
+		if Input.is_action_pressed("Speedup"):
 			_animated_sprite4.play("Full Up")
 	elif Input.is_action_just_released("ui_down"):
 		_animated_sprite4.play("Thrust Up", true)
@@ -159,13 +159,13 @@ func _physics_process(_delta):
 	input_velocity.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
 	input_velocity.y = Input.get_action_strength("ui_down")-Input.get_action_strength("ui_up")
 	#Shift speeds up player, Ctrl slows down player
-	if Input.is_action_pressed("speedup"):
+	if Input.is_action_pressed("Speedup"):
 		set_speed(400,0.2)
-	elif Input.is_action_just_released("speedup"):
+	elif Input.is_action_just_released("Speedup"):
 		set_speed(200,0.19)
-	elif Input.is_action_pressed("slowdown"):
+	elif Input.is_action_pressed("Slowdown"):
 		set_speed(70,0.16)
-	elif Input.is_action_just_released("slowdown"):
+	elif Input.is_action_just_released("Slowdown"):
 		set_speed(200,0.19)
 	input_velocity = input_velocity.normalized() * speed
 	thrust_animation()

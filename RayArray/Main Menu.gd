@@ -10,4 +10,4 @@ func _on_LevelSelect_pressed():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://KeybindMenu.tscn")
+	get_tree().change_scene("res://OptionsMenu.tscn")
