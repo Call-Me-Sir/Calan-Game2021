@@ -3,12 +3,15 @@ extends ColorRect
 var can_change_key = false
 var action_string
 enum ACTIONS {ui_left, ui_right, ui_up, ui_down, Speedup, Slowdown, ItemLeft, ItemRight, DeployPickup, SelectRight, SelectLeft, UIShowHide}
-onready var ui_up = get_node("Panel/ScrollContainer/VBoxContainer/ui_up")
+
 func _ready():
+	visible = false
+	get_parent().move_child(self,-1)
 	_set_keys()
 
-#func _process(_delta):
-#	_set_keys()
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		visible = not visible
 	
 func _set_keys():
 	for j in ACTIONS:
@@ -18,13 +21,6 @@ func _set_keys():
 		else:
 			get_node("Panel/ScrollContainer/VBoxContainer/" + str(j) + "/Button").set_text("No Button!")
 			
-
-
-
-
-func change_key_ItemLeft():
-	_mark_button("ItemLeft")
-
 	
 func _mark_button(string):
 	can_change_key = true
@@ -53,10 +49,45 @@ func _change_key(new_key):
 	InputMap.action_add_event(action_string, new_key)
 	
 	_set_keys()
-
-func _on_Button_pressed():
+#All the buttons
+func back_to_main_menu():
 	get_tree().change_scene("res://Main Menu.tscn")
-
+	
+func back_to_level():
+	pass # Replace with function body.
+	
+func change_key_ItemLeft():
+	_mark_button("ItemLeft")
 
 func change_key_ItemRight():
 	_mark_button("ItemRight")
+
+func change_key_SelectLeft():
+	_mark_button("SelectLeft")
+
+func change_key_SelectRight():
+	_mark_button("SelectRight")
+
+func change_key_UIShowHide():
+	_mark_button("UIShowHide")
+
+func change_key_DeployPickup():
+	_mark_button("DeployPickup")
+
+func change_key_Slowdown():
+	_mark_button("Slowdown")
+
+func change_key_Speedup():
+	_mark_button("Speedup")
+
+func change_key_moveup():
+	_mark_button("ui_up")
+
+func change_key_moveleft():
+	_mark_button("ui_left")
+
+func change_key_moveright():
+	_mark_button("ui_right")
+
+func change_key_movedown():
+	_mark_button("ui_down")
