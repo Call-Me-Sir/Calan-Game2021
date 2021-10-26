@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Mirror.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prototile.tscn" type="PackedScene" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://InLevelUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Victory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://LaserExperiment.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Minecraftia-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 8 )
 
 [node name="Level 4" type="Node"]
 
@@ -515,6 +519,16 @@ position = Vector2( 48, 552 )
 
 [node name="Texture" parent="RedLaser" index="0"]
 rotation = -1.64939
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_right = 92.0
+margin_bottom = 22.0
+custom_fonts/font = SubResource( 1 )
+text = "LEVEL 4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [editable path="Playerspaceshipkinematic"]
 [editable path="Mirror"]

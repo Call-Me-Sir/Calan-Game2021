@@ -1,21 +1,25 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Mirror.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Playerspaceshipkinematic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prototile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Level.gd" type="Script" id=5]
+[ext_resource path="res://LaserExperiment.tscn" type="PackedScene" id=5]
 [ext_resource path="res://InLevelUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Victory.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Level.gd" type="Script" id=8]
+[ext_resource path="res://Minecraftia-Regular.ttf" type="DynamicFontData" id=9]
 
-[node name="Level 2" type="Node"]
-script = ExtResource( 5 )
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 9 )
+
+[node name="Level 1" type="Node"]
+script = ExtResource( 8 )
+level_name = "level 1"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -8.0
-margin_bottom = -8.0
 color = Color( 0, 0, 0.227451, 0.219608 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -26,9 +30,14 @@ position = Vector2( 408, 160 )
 collision_layer = 4
 collision_mask = 4
 
-[node name="Mirror" parent="." instance=ExtResource( 1 )]
-position = Vector2( 48, 40 )
-rotation = 0.698113
+[node name="Mirror3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 944, 224 )
+rotation = -0.0798136
+collision_layer = 2
+
+[node name="Mirror4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 976, 304 )
+rotation = -0.0798136
 collision_layer = 2
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -241,96 +250,6 @@ position = Vector2( 976, -512 )
 [node name="Prototile90" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 1008, -512 )
 
-[node name="Prototile105" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 80, -448 )
-
-[node name="Prototile106" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 112, -448 )
-
-[node name="Prototile107" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 144, -448 )
-
-[node name="Prototile108" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 176, -448 )
-
-[node name="Prototile109" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 208, -448 )
-
-[node name="Prototile110" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 240, -448 )
-
-[node name="Prototile111" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 272, -448 )
-
-[node name="Prototile112" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 304, -448 )
-
-[node name="Prototile113" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 336, -448 )
-
-[node name="Prototile114" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 368, -448 )
-
-[node name="Prototile115" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 400, -448 )
-
-[node name="Prototile116" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 432, -448 )
-
-[node name="Prototile117" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 464, -448 )
-
-[node name="Prototile118" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 496, -448 )
-
-[node name="Prototile119" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 528, -448 )
-
-[node name="Prototile120" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 560, -448 )
-
-[node name="Prototile121" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 592, -448 )
-
-[node name="Prototile122" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 624, -448 )
-
-[node name="Prototile123" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 656, -448 )
-
-[node name="Prototile124" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 688, -448 )
-
-[node name="Prototile125" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 720, -448 )
-
-[node name="Prototile126" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 752, -448 )
-
-[node name="Prototile127" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 784, -448 )
-
-[node name="Prototile128" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 816, -448 )
-
-[node name="Prototile129" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 848, -448 )
-
-[node name="Prototile130" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 880, -448 )
-
-[node name="Prototile131" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 912, -448 )
-
-[node name="Prototile132" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 944, -448 )
-
-[node name="Prototile133" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 976, -448 )
-
-[node name="Prototile134" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 1008, -448 )
-
 [node name="Prototile33" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 1008, -64 )
 
@@ -437,22 +356,55 @@ position = Vector2( 16, -384 )
 position = Vector2( 824, 568 )
 
 [node name="Sensor" parent="Door" index="2"]
-position = Vector2( 152, -528 )
-rotation = 2.35619
+position = Vector2( -776, -16 )
+rotation = 3.92699
 
 [node name="CollisionShape2D2" parent="Door/Sensor/Area2D" index="0"]
 position = Vector2( -6.10352e-05, 9.15527e-05 )
 
 [node name="Line2D" parent="Door" index="4"]
-points = PoolVector2Array( 0, 0, 0, 16, 184, 16, 184, -528, 168, -528 )
+points = PoolVector2Array( 0, 0, 0, 16, -776, 16, -776, 0 )
+
+[node name="Door2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 840, 424 )
+
+[node name="Sensor" parent="Door2" index="2"]
+position = Vector2( 152, -24 )
+rotation = -1.5708
+
+[node name="Line2D" parent="Door2" index="4"]
+position = Vector2( 120, -8 )
+points = PoolVector2Array( 32, -16, 48, -16, 48, 24, -120, 24, -120, 8 )
+
+[node name="NewRedLaser" parent="." instance=ExtResource( 5 )]
+position = Vector2( 792, 176 )
+
+[node name="Texture" parent="NewRedLaser" index="0"]
+rotation = 0.837758
+
+[node name="CollisionShape2D" parent="NewRedLaser/Area2D" index="0"]
+position = Vector2( 0, 0 )
 
 [node name="InLevelUI" parent="." instance=ExtResource( 6 )]
 
 [node name="Victory" parent="." instance=ExtResource( 7 )]
 position = Vector2( 912, 512 )
 
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_right = 92.0
+margin_bottom = 22.0
+custom_fonts/font = SubResource( 1 )
+text = "LEVEL 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="area_entered" from="Victory" to="." method="_on_Victory_area_entered"]
 
 [editable path="Playerspaceshipkinematic"]
-[editable path="Mirror"]
+[editable path="Mirror3"]
+[editable path="Mirror4"]
 [editable path="Door"]
+[editable path="Door2"]
+[editable path="NewRedLaser"]
