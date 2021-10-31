@@ -67,6 +67,7 @@ func _process(delta):
 			Indicate()
 			return
 		Indicate()
+		print(Selected)
 		if PlayerShip.has_node("RedLaser"):
 			PlayerShip.get_node("RedLaser").queue_free()
 		elif PlayerShip.has_node("Mirror"):
@@ -92,6 +93,7 @@ func _process(delta):
 			Indicate()
 			return
 		Indicate()
+		print(Selected)
 		if PlayerShip.has_node("RedLaser"):
 			PlayerShip.get_node("RedLaser").queue_free()
 		elif PlayerShip.has_node("Mirror"):
