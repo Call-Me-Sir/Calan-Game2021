@@ -25,16 +25,6 @@ animations = [ {
 "name": "Thrust Right",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": false,
-"name": "Small Right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": false,
-"name": "Full Up",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": false,
 "name": "Small Up",
@@ -44,6 +34,16 @@ animations = [ {
 "loop": false,
 "name": "Thrust Up",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": false,
+"name": "Full Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": false,
+"name": "Small Right",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": false,

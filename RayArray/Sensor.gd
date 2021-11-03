@@ -13,10 +13,11 @@ func _ready():
 
 func lasercheck():
 	if not self.is_connected("RayHit", get_node(".."), "_on_Sensor_Laserfalse"):
-		print(get_node(".."))
+		#print(get_node(".."))
 		emit_signal("Laserfalse")
-		print("Signal Laserfalse emmitting")
+		#print("Signal Laserfalse emmitting")
 	else:
-		print("Ray still hitting")
+		#print("Ray still hitting")
+		pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

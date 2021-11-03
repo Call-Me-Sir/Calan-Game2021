@@ -11,7 +11,7 @@ var laserhitting = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(laserhitting)
+	pass
 	#line.clear_points()
 	#line.add_point($Sensor.position)
 	#line.add_point(Vector2.ZERO) # Replace with function body.
@@ -26,7 +26,6 @@ func _process(_delta):
 		line.default_color = Color(1,1,1)
 		$AnimationPlayer.play("DoorOpen")
 		open = true
-		print("This")
 
 
 #func _on_Sensor_RayHit():
@@ -51,14 +50,11 @@ func _on_Area2D_area_entered(area):
 		Sensor.color = Color(1,0,0)
 		line.default_color = Color(1,0,0)
 		laserhitting +=1
-		print(laserhitting)
 		if open == false:
 			$AnimationPlayer.play("DoorOpen")
 			open = true
-		print("Hit!") # Replace with function body.
 	elif area.is_in_group("Laser") and laserhitting != 0:
 		laserhitting += 1
-		print(laserhitting)
 	
 
 
@@ -67,11 +63,9 @@ func _on_Area2D_area_exited(area):
 		Sensor.color = Color(1,1,1)
 		line.default_color = Color(1,1,1)
 		laserhitting -= 1
-		print(laserhitting)
 		if open == true:
 			$AnimationPlayer.play_backwards("DoorOpen")
 			open = false
-			print("Closing")
+			#print("Closing")
 	elif area.is_in_group("Laser") and laserhitting > 1:
 		laserhitting -=1
-		print(laserhitting)

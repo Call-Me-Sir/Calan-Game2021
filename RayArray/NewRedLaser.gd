@@ -105,10 +105,8 @@ func _on_Area2D_area_entered(area):
 	#Notes it the player is near obect
 	if area.name == "PickupArea":
 		pickupable = true
-		print(pickupable)
 	if area.name == "MouseArea":
 		mouse_in = true
-		print(mouse_in)
 	if area.name == "ControlArea":
 		in_control_area = true
 
@@ -116,9 +114,7 @@ func _on_Area2D_area_exited(area):
 	#Notes if the player is no longer near the object
 	if area.name == "PickupArea":
 		pickupable = false
-		print(pickupable)
 	if area.name == "MouseArea":
 		mouse_in = false
-		print(mouse_in)
 	if area.name == "ControlArea":
 		in_control_area = false

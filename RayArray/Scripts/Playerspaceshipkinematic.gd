@@ -112,7 +112,8 @@ func close_glow():
 	#object.Texture.size.y = object.Texture.size.y * 1.1
 	#closest_object.get_parent().Light.show()
 
-	Input.is_action_just_pressed("Sp")
+	#Input.is_action_just_pressed("Sp")
+
 func thrust_animation():
 	#Controls what animations play when the player moves. Mostly self explanatory
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("Slowdown"):
@@ -193,7 +194,7 @@ func _physics_process(_delta):
 
 
 func _on_PickupArea_area_entered(area):
-	print(area.get_parent()) #debugging
+	pass #debugging
 
 
 func _on_PickupArea_area_exited(_area):

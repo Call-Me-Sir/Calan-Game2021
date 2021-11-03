@@ -246,7 +246,7 @@ text = "Back To Main Menu"
 margin_top = 312.0
 margin_right = 142.0
 margin_bottom = 332.0
-text = "Back To Main Menu"
+text = "Back To Level"
 
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/ItemLeft/Button" to="." method="change_key_ItemLeft"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/ItemRight/Button" to="." method="change_key_ItemRight"]

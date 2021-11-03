@@ -5,13 +5,15 @@ var action_string
 enum ACTIONS {ui_left, ui_right, ui_up, ui_down, Speedup, Slowdown, ItemLeft, ItemRight, DeployPickup, SelectRight, SelectLeft, UIShowHide}
 
 func _ready():
-	visible = false
-	get_parent().move_child(self,-1)
+	visible = true
+	#get_parent().move_child(self,-1)
 	_set_keys()
+	$Panel/ScrollContainer/VBoxContainer/Button2.text = "Back to Level " + str(Master.current_level)
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_cancel"):
-		visible = not visible
+	pass
+	#if Input.is_action_just_pressed("ui_cancel"):
+	#	visible = not visible
 	
 func _set_keys():
 	for j in ACTIONS:
@@ -54,7 +56,7 @@ func back_to_main_menu():
 	get_tree().change_scene("res://Main Menu.tscn")
 	
 func back_to_level():
-	pass # Replace with function body.
+	get_tree().change_scene("res://Levels/Level " + str(Master.current_level) + ".tscn")
 	
 func change_key_ItemLeft():
 	_mark_button("ItemLeft")
