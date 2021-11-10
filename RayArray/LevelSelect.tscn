@@ -41,63 +41,181 @@ margin_bottom = 520.0
 
 [node name="LVL1-5" type="HBoxContainer" parent="Level Select/LVLRows"]
 margin_right = 784.0
-margin_bottom = 45.0
+margin_bottom = 136.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
 [node name="LVL1" type="TextureButton" parent="Level Select/LVLRows/LVL1-5"]
-margin_right = 55.0
-margin_bottom = 45.0
+margin_left = 246.0
+margin_right = 301.0
+margin_bottom = 136.0
 disabled = true
 texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 1 )
 
 [node name="LVL2" type="TextureButton" parent="Level Select/LVLRows/LVL1-5"]
-margin_left = 59.0
-margin_right = 114.0
-margin_bottom = 45.0
+margin_left = 305.0
+margin_right = 360.0
+margin_bottom = 136.0
 disabled = true
 texture_normal = ExtResource( 6 )
 texture_hover = ExtResource( 4 )
 texture_disabled = ExtResource( 12 )
 
 [node name="LVL3" type="TextureButton" parent="Level Select/LVLRows/LVL1-5"]
-margin_left = 118.0
-margin_right = 173.0
-margin_bottom = 45.0
+margin_left = 364.0
+margin_right = 419.0
+margin_bottom = 136.0
 disabled = true
 texture_normal = ExtResource( 7 )
 texture_hover = ExtResource( 5 )
 texture_disabled = ExtResource( 12 )
 
 [node name="LVL4" type="TextureButton" parent="Level Select/LVLRows/LVL1-5"]
-margin_left = 177.0
-margin_right = 232.0
-margin_bottom = 45.0
+margin_left = 423.0
+margin_right = 478.0
+margin_bottom = 136.0
 disabled = true
 texture_normal = ExtResource( 10 )
 texture_hover = ExtResource( 8 )
 texture_disabled = ExtResource( 12 )
 
 [node name="LVL5" type="TextureButton" parent="Level Select/LVLRows/LVL1-5"]
-margin_left = 236.0
-margin_right = 291.0
-margin_bottom = 45.0
+margin_left = 482.0
+margin_right = 537.0
+margin_bottom = 136.0
 disabled = true
 texture_normal = ExtResource( 11 )
 texture_hover = ExtResource( 9 )
 texture_disabled = ExtResource( 12 )
 
 [node name="LVL6-10" type="HBoxContainer" parent="Level Select/LVLRows"]
-margin_top = 49.0
+margin_top = 140.0
 margin_right = 784.0
-margin_bottom = 49.0
+margin_bottom = 276.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="LVL6" type="TextureButton" parent="Level Select/LVLRows/LVL6-10"]
+margin_left = 246.0
+margin_right = 301.0
+margin_bottom = 136.0
+disabled = true
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 1 )
+texture_disabled = ExtResource( 12 )
+
+[node name="LVL7" type="TextureButton" parent="Level Select/LVLRows/LVL6-10"]
+margin_left = 305.0
+margin_right = 360.0
+margin_bottom = 136.0
+disabled = true
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 12 )
+
+[node name="LVL8" type="TextureButton" parent="Level Select/LVLRows/LVL6-10"]
+margin_left = 364.0
+margin_right = 419.0
+margin_bottom = 136.0
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 12 )
+
+[node name="LVL9" type="TextureButton" parent="Level Select/LVLRows/LVL6-10"]
+margin_left = 423.0
+margin_right = 478.0
+margin_bottom = 136.0
+disabled = true
+texture_normal = ExtResource( 10 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 12 )
+
+[node name="LVL10" type="TextureButton" parent="Level Select/LVLRows/LVL6-10"]
+margin_left = 482.0
+margin_right = 537.0
+margin_bottom = 136.0
+disabled = true
+texture_normal = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_disabled = ExtResource( 12 )
 
 [node name="LVL11-15" type="HBoxContainer" parent="Level Select/LVLRows"]
-margin_top = 53.0
+margin_top = 280.0
 margin_right = 784.0
-margin_bottom = 53.0
+margin_bottom = 416.0
+size_flags_vertical = 3
+alignment = 1
 
-[connection signal="pressed" from="Level Select/LVLRows/LVL1-5/LVL1" to="." method="_on_LVL1_pressed"]
-[connection signal="pressed" from="Level Select/LVLRows/LVL1-5/LVL2" to="." method="_on_LVL2_pressed"]
-[connection signal="pressed" from="Level Select/LVLRows/LVL1-5/LVL3" to="." method="_on_LVL3_pressed"]
-[connection signal="pressed" from="Level Select/LVLRows/LVL1-5/LVL4" to="." method="_on_LVL4_pressed"]
-[connection signal="pressed" from="Level Select/LVLRows/LVL1-5/LVL5" to="." method="_on_LVL5_pressed"]
+[node name="LVL11" type="TextureButton" parent="Level Select/LVLRows/LVL11-15"]
+margin_left = 246.0
+margin_right = 301.0
+margin_bottom = 136.0
+disabled = true
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 1 )
+texture_disabled = ExtResource( 12 )
+
+[node name="LVL12" type="TextureButton" parent="Level Select/LVLRows/LVL11-15"]
+margin_left = 305.0
+margin_right = 360.0
+margin_bottom = 136.0
+disabled = true
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 12 )
+
+[node name="LVL13" type="TextureButton" parent="Level Select/LVLRows/LVL11-15"]
+margin_left = 364.0
+margin_right = 419.0
+margin_bottom = 136.0
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 12 )
+
+[node name="LVL14" type="TextureButton" parent="Level Select/LVLRows/LVL11-15"]
+margin_left = 423.0
+margin_right = 478.0
+margin_bottom = 136.0
+disabled = true
+texture_normal = ExtResource( 10 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 12 )
+
+[node name="LVL15" type="TextureButton" parent="Level Select/LVLRows/LVL11-15"]
+margin_left = 482.0
+margin_right = 537.0
+margin_bottom = 136.0
+disabled = true
+texture_normal = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_disabled = ExtResource( 12 )
+
+[node name="Button" type="Button" parent="Level Select/LVLRows"]
+margin_top = 420.0
+margin_right = 784.0
+margin_bottom = 440.0
+text = "Back To Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Level Select/LVLRows/LVL1-5/LVL1" to="." method="_on_LVLChanged_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL1-5/LVL2" to="." method="_on_LVLChanged_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL1-5/LVL3" to="." method="_on_LVLChanged_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL1-5/LVL4" to="." method="_on_LVLChanged_pressed" binds= [ 4 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL1-5/LVL5" to="." method="_on_LVLChanged_pressed" binds= [ 5 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL6-10/LVL6" to="." method="_on_LVLChanged_pressed" binds= [ 6 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL6-10/LVL7" to="." method="_on_LVLChanged_pressed" binds= [ 7 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL6-10/LVL8" to="." method="_on_LVLChanged_pressed" binds= [ 8 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL6-10/LVL9" to="." method="_on_LVLChanged_pressed" binds= [ 9 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL6-10/LVL10" to="." method="_on_LVLChanged_pressed" binds= [ 10 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL11-15/LVL11" to="." method="_on_LVLChanged_pressed" binds= [ 6 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL11-15/LVL12" to="." method="_on_LVLChanged_pressed" binds= [ 7 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL11-15/LVL13" to="." method="_on_LVLChanged_pressed" binds= [ 8 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL11-15/LVL14" to="." method="_on_LVLChanged_pressed" binds= [ 9 ]]
+[connection signal="pressed" from="Level Select/LVLRows/LVL11-15/LVL15" to="." method="_on_LVLChanged_pressed" binds= [ 10 ]]
+[connection signal="pressed" from="Level Select/LVLRows/Button" to="." method="back_to_main_menu"]

@@ -14,25 +14,14 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().change_scene("res://OptionsMenu.tscn")
 
 
-func _on_LVL1_pressed():
-	get_tree().change_scene("res://Levels/Level 1.tscn")
+func _on_LVLChanged_pressed(lvl):
+	get_tree().change_scene("res://Levels/Level "+ str(lvl) + ".tscn")
 
 
-func _on_LVL2_pressed():
-	get_tree().change_scene("res://Levels/Level 2.tscn")
-
-
-func _on_LVL3_pressed():
-	get_tree().change_scene("res://Levels/Level 3.tscn")
-
-
-func _on_LVL4_pressed():
-	get_tree().change_scene("res://Levels/Level 4.tscn")
-
-
-func _on_LVL5_pressed():
-	get_tree().change_scene("res://Levels/Level 5.tscn")
+func back_to_main_menu():
+	get_tree().change_scene("res://Main Menu.tscn")

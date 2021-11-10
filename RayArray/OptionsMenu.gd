@@ -8,7 +8,10 @@ func _ready():
 	visible = true
 	#get_parent().move_child(self,-1)
 	_set_keys()
-	$Panel/ScrollContainer/VBoxContainer/Button2.text = "Back to Level " + str(Master.current_level)
+	if Master.current_level != null:
+		$Panel/ScrollContainer/VBoxContainer/Button2.text = "Back to Level " + str(Master.current_level)
+	else:
+		$Panel/ScrollContainer/VBoxContainer/Button2.hide()
 
 func _process(_delta):
 	pass

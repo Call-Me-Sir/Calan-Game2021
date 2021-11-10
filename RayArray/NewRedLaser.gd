@@ -26,8 +26,8 @@ func _process(delta):
 	if get_parent().name == "Playerspaceshipkinematic" or get_parent().name == "Main Menu":# or Input.is_mouse_button_pressed(BUTTON_LEFT) (For debugging):
 		#If on player, use mouse to rotate
 		texture.rotation = get_local_mouse_position().angle()
-		ray.cast_to = Vector2(1000,0).rotated(texture.rotation)
-		#ray.cast_to = (get_global_mouse_position()-line.global_position).normalized()* 1000
+		ray.cast_to = Vector2(1500,0).rotated(texture.rotation)
+		#ray.cast_to = (get_global_mouse_position()-line.global_position).normalized()* 1500
 		$CollisionShape2D.disabled = true
 	elif in_control_area == true and Input.is_mouse_button_pressed(BUTTON_LEFT):
 		#If in control area, use arrow keys
@@ -46,11 +46,11 @@ func _process(delta):
 		elif Input.is_action_just_released("Slowdown"):
 			rotation_speed = 1
 		texture.rotation += rotation_dir * rotation_speed * delta
-		ray.cast_to = Vector2(1000,0).rotated(texture.rotation)
+		ray.cast_to = Vector2(1500,0).rotated(texture.rotation)
 	#	$CollisionShape2D.disabled = true
 	else:
 		#Keep facing the same way in player absence
-		ray.cast_to = Vector2(1000,0).rotated(texture.rotation)
+		ray.cast_to = Vector2(1500,0).rotated(texture.rotation)
 		#$CollisionShape2D.disabled = false
 	var prev = null
 	var bounces = 0
@@ -71,7 +71,7 @@ func _process(delta):
 		
 		var normal = ray.get_collision_normal()
 		debugray.global_position = pt
-		debugray.cast_to = normal * 1000
+		debugray.cast_to = normal * 1500
 		if normal == Vector2.ZERO:
 			break
 		if prev != null:
