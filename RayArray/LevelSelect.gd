@@ -10,6 +10,10 @@ extends ColorRect
 func _ready():
 	for i in (Master.max_level):
 		get_node("Level Select/LVLRows/LVL1-5/LVL" + str(i+1)).set_disabled(false)
+	for i in (Master.max_level):
+		get_node("Level Select/LVLRows/LVL6-10/LVL" + str(i+6)).set_disabled(false)
+	for i in (Master.max_level):
+		get_node("Level Select/LVLRows/LVL11-15/LVL" + str(i+11)).set_disabled(false)
 		
 
 
