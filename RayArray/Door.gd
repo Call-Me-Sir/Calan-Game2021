@@ -12,15 +12,10 @@ var laserhitting = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-	#line.clear_points()
-	#line.add_point($Sensor.position)
-	#line.add_point(Vector2.ZERO) # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
-	#Opens door when laser hits
+	#Opens door when laser hits and changes color of line and sensor
 	if open == false and laserhitting >= 1:
 		Sensor.color = Color(1,0,0)
 		line.default_color = Color(1,1,1)
@@ -45,7 +40,7 @@ func _process(_delta):
 
 
 func _on_Area2D_area_entered(area):
-	
+	#If no lasers previously hitting, open door
 	if area.is_in_group("Laser") and laserhitting == 0:
 		Sensor.color = Color(1,0,0)
 		line.default_color = Color(1,0,0)
@@ -53,12 +48,14 @@ func _on_Area2D_area_entered(area):
 		if open == false:
 			$AnimationPlayer.play("DoorOpen")
 			open = true
+	#If more than one laser is hitting, note extra laser and don't do more
 	elif area.is_in_group("Laser") and laserhitting != 0:
 		laserhitting += 1
 	
 
 
 func _on_Area2D_area_exited(area):
+	#If no lasers hitting anymore, close door
 	if area.is_in_group("Laser") and laserhitting == 1:
 		Sensor.color = Color(1,1,1)
 		line.default_color = Color(1,1,1)
@@ -67,5 +64,6 @@ func _on_Area2D_area_exited(area):
 			$AnimationPlayer.play_backwards("DoorOpen")
 			open = false
 			#print("Closing")
+	# If multiple lasers were hitting, note missing laser and don't do more
 	elif area.is_in_group("Laser") and laserhitting > 1:
 		laserhitting -=1

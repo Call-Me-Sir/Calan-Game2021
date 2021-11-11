@@ -10,7 +10,7 @@ signal Laserfalse
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
+# Relic code
 func lasercheck():
 	if not self.is_connected("RayHit", get_node(".."), "_on_Sensor_Laserfalse"):
 		#print(get_node(".."))

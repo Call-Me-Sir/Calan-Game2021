@@ -60,7 +60,6 @@ polygon = PoolVector2Array( -24, 0, 0, -24, 24, 0 )
 polygon = PoolVector2Array( -24, 0, 0, -24, 24, 0 )
 
 [node name="Area2D" type="Area2D" parent="Sensor"]
-visible = false
 
 [node name="CollisionShape2D2" type="CollisionPolygon2D" parent="Sensor/Area2D"]
 polygon = PoolVector2Array( -24, 0, 0, -24, 24, 0 )

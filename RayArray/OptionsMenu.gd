@@ -54,6 +54,7 @@ func _change_key(new_key):
 	InputMap.action_add_event(action_string, new_key)
 	
 	_set_keys()
+
 #All the buttons
 func back_to_main_menu():
 	get_tree().change_scene("res://Main Menu.tscn")

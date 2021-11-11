@@ -11,16 +11,17 @@ func _ready():
 	print(Master.current_level)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Esc to options menu
 func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().change_scene("res://OptionsMenu.tscn")
 
-
+# When objective reached, go to next level
 func _on_Victory_area_entered(area):
 	emit_signal("level_changed", level_name)
 #	print(area.name)
 	if area.name == "PickupArea":
+		#If this level was the farthest you'd been, note how far you are now
 		if Master.current_level == Master.max_level:
 			Master.max_level +=1
 		Master.current_level += 1

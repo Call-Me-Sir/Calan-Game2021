@@ -1,5 +1,5 @@
 extends StaticBody2D
-
+#Relic code for unsued laser
 
 # Declare member variables here. Examples:
 onready var beam = $RayCast2D/Beam

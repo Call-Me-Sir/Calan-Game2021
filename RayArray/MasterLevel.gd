@@ -1,5 +1,5 @@
 extends Node
-
+#Relic code
 onready var current_level = $Level1
 onready var level_num = 1
 

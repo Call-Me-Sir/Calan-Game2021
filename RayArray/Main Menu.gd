@@ -4,7 +4,7 @@ extends MarginContainer
 func _ready():
 	pass # Replace with function body.
 
-
+# Change scene on button press
 func _on_LevelSelect_pressed():
 	get_tree().change_scene("res://LevelSelect.tscn")
 
