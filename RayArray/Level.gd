@@ -22,10 +22,14 @@ func _on_Victory_area_entered(area):
 #	print(area.name)
 	if area.name == "PickupArea":
 		#If this level was the farthest you'd been, note how far you are now
-		if Master.current_level == Master.max_level:
+		if Master.current_level == Master.max_level and Master.max_level <= 15:
 			Master.max_level +=1
-		Master.current_level += 1
-		get_tree().change_scene("res://Levels/Level " + str(Master.current_level) + ".tscn")
+		if Master.current_level <= 15:
+			Master.current_level += 1
+			get_tree().change_scene("res://Levels/Level " + str(Master.current_level) + ".tscn")
+		else:
+			pass
+			#get_tree().change_scene("res://EndScreen.tscn")
 		
 	else:
 		pass

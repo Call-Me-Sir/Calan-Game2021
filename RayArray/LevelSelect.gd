@@ -8,8 +8,10 @@ func _ready():
 			get_node("Level Select/LVLRows/LVL1-5/LVL" + str(i+1)).set_disabled(false)
 		elif i > 4 and i < 10:
 			get_node("Level Select/LVLRows/LVL6-10/LVL" + str(i+1)).set_disabled(false)
-		elif i >= 10:
+		elif i >= 10 and i < 16:
 			get_node("Level Select/LVLRows/LVL11-15/LVL" + str(i+1)).set_disabled(false)
+		elif i == 16:
+			break
 		
 
 
